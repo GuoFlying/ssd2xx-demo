@@ -1,0 +1,4 @@
+include_directories(${CMAKE_SOURCE_DIR}/1.watchdog/common)
+add_subdirectory(common)
+add_subdirectory(watchdog-test1)
+add_subdirectory(watchdog-test2)
