@@ -43,6 +43,7 @@
 ```
 ## demo说明<a name="demoDoc4"></a>
 
+-   0.common 通用库、第三方开源库等[文档说明](./1.watchdog/common-doc.md)；
 -   1.watchdog 看门狗[文档说明](./1.watchdog/watchdog-doc.md)；
 
 
