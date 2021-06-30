@@ -60,7 +60,7 @@ void watchdog_stop(int fd)
     int option = WDIOS_DISABLECARD;
     if (fd > 0)
     {
-        printf("watchdog_func_stop\n");
+        printf("%s\n", __func__);
         ioctl(fd, WDIOC_SETOPTIONS, &option);
         close(fd);
     }
@@ -70,7 +70,16 @@ void watchdog_feed(int fd)
 {
     if (fd)
     {
-        printf("watchdog_func_feed\n");
+        printf("%s\n", __func__);
         ioctl(fd, WDIOC_KEEPALIVE, 0);
+    }
+}
+
+void watchdog_close(int fd)
+{
+    if (fd)
+    {
+        printf("%s\n", __func__);
+        close(fd);
     }
 }

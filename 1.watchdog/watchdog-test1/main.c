@@ -11,12 +11,12 @@
 #include <unistd.h>
 #include "watchdog.h"
 
-//5秒后重启
 int main(int argc, char **argv)
 {
 
     int fd = watchdog_open();
-
+    
+    //5秒后重启
     watchdog_start(fd, 5);
 
     while (1)
