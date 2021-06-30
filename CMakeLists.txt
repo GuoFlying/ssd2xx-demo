@@ -16,7 +16,13 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 if(CHIP STREQUAL "ssd20x")
     message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
+    include_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/include)
+    link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/ex_libs/dynamic)
+    link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/mi_libs/dynamic)
+
     add_subdirectory(1.watchdog)
+    add_subdirectory(2.panel/ssd20x-ttl-panel-base)
+
 elseif(CHIP STREQUAL "ssd2x2")
     message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
     add_subdirectory(1.watchdog)
@@ -25,25 +31,3 @@ else()
     message("${Red} 编译详细过程可见 README.md ${ColourReset}" )
     message(FATAL_ERROR)
 endif()
-
-
-# set(PROJECT_PATH "/home/flying20x/workspace/ssd20x/project")
-
-# INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR})
-# INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/iniparser)
-# INCLUDE_DIRECTORIES("${PROJECT_PATH}/release/include")
-# link_directories("${PROJECT_PATH}/release/nvr/i2m/common/glibc/8.2.1/ex_libs/dynamic")
-# link_directories("${PROJECT_PATH}/release/nvr/i2m/common/glibc/8.2.1/mi_libs/dynamic")
-
-
-# file(GLOB_RECURSE INCLUDES "./*.h" )
-# #file(GLOB_RECURSE SOURCES  "iniparser/*.c" )
-
-# SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) 
-
-# add_executable(${PROJECT_NAME} main.c ${SOURCES} ${INCLUDES})
-# #target_link_libraries(load_audio_tmp "-lpthread -ldl  -lmi_common  -lmi_sys -lmi_disp -lmi_panel")
-# target_link_libraries(${PROJECT_NAME} "-lpthread -ldl")
-
-
-

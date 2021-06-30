@@ -13,20 +13,18 @@
 
 ```
 /ssd2xx-demo
-├── doc                    # makedown文档、图片等
 ├── CMakeLists.txt         # cmake lists，工程配置，用于cmake编译
 ├── toolchain.cmake        # cmake交叉编译配置
 ├── README.md              # 说明文档总入口
 ├── 0.common               # 公用lib、include、第三方库等
 │   ├── ssd20x             # SSD20x SDK相关库（V030版本）
-│   │   ├── ex_libs        # 扩展lib
-│   │   ├── mi_lisb        # mi lib
-│   │   └── include        # ex、mi对应头文
 │   └── ssd2x2             # SSD2x2 SDK相关库（V013版本）
-│   │   ├── ex_libs        # 扩展lib
-│   │   ├── mi_lisb        # mi lib
-│   │   └── include        # ex、mi对应头文
-└── 1.watchdog             # 看门狗demo
+├── 1.watchdog             # 看门狗demo
+│   ├── common             # 看门狗通用API接口
+│   ├── watchdog-test1     # 简单打开看门狗，并设置喂狗时间5秒
+│   └── watchdog-test2     # 命令方式操作看门狗
+├─── 2.panel                    # 点屏相关demo
+│   ├── ssd20x-ttl-panel-base   # 看门狗通用API接口
 
 ```
 
@@ -45,5 +43,5 @@
 
 -   [0.common 通用库、第三方开源库等 文档说明](./0.common/common-doc.md)；
 -   [1.watchdog 看门狗 文档说明](./1.watchdog/watchdog-doc.md)；
-
+-   [2.panel 点屏相关 文档说明](./2.panel/panel-doc.md)；
 
