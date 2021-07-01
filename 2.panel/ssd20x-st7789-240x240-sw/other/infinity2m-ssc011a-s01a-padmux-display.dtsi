@@ -1,0 +1,58 @@
+/*
+* infinity2m-ssc011a-s01a-padmux-display.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+#include <../../../../drivers/sstar/include/infinity2m/padmux.h>
+#include <../../../../drivers/sstar/include/mdrv_puse.h>
+
+/ {
+    soc {
+         padmux {
+            compatible = "sstar-padmux";
+            schematic =
+
+                <PAD_TTL0            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT00 >,
+                <PAD_TTL1            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT01 >,
+                <PAD_TTL2            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT02 >,
+                <PAD_TTL3            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT03 >,
+                <PAD_TTL4            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT04 >,
+                <PAD_TTL5            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT05 >,
+                <PAD_TTL6            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT06 >,
+                <PAD_TTL7            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT07 >,
+                <PAD_TTL8            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT08 >,
+                <PAD_TTL9            PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT09 >,
+                <PAD_TTL10           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT10 >,
+                <PAD_TTL11           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT11 >,
+                <PAD_TTL12           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT12 >,
+                <PAD_TTL13           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT13 >,
+                <PAD_TTL14           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT14 >,
+                <PAD_TTL15           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DOUT15 >,
+
+                <PAD_TTL24           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_CLK    >,
+                <PAD_TTL25           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_HSYNC  >,
+                <PAD_TTL26           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_VSYNC  >,
+                <PAD_TTL27           PINMUX_FOR_TTL_MODE_3      MDRV_PUSE_TTL_DE     >,
+
+                <PAD_HSYNC_OUT          PINMUX_FOR_IDAC_MODE        MDRV_PUSE_IDAC_HSYNC>,
+                <PAD_VSYNC_OUT          PINMUX_FOR_IDAC_MODE        MDRV_PUSE_IDAC_VSYNC>;
+                //<PAD_SATA_GPIO  >;
+            status = "ok"; // ok or disable
+            //status = "disable";
+        };
+
+    };
+
+};

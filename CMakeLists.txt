@@ -22,6 +22,8 @@ if(CHIP STREQUAL "ssd20x")
 
     add_subdirectory(1.watchdog)
     add_subdirectory(2.panel/ssd20x-ttl-panel-base)
+    add_subdirectory(2.panel/ssd20x-st7789-240x240-sw)
+    add_subdirectory(2.panel/ssd20x-st7789-240x240-hw)
 
 elseif(CHIP STREQUAL "ssd2x2")
     message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
