@@ -20,16 +20,15 @@ if(CHIP STREQUAL "ssd20x")
     link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/ex_libs/dynamic)
     link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/mi_libs/dynamic)
 
-    add_subdirectory(1.watchdog)
-    add_subdirectory(2.panel/ssd20x-ttl-panel-base)
-    add_subdirectory(2.panel/ssd20x-st7789-240x240-sw)
-    add_subdirectory(2.panel/ssd20x-st7789-240x240-hw)
-
 elseif(CHIP STREQUAL "ssd2x2")
     message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
-    add_subdirectory(1.watchdog)
+    
 else()
     message("${Red} 请指定编译目标。eg：cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd20x .. ${ColourReset}" )
     message("${Red} 编译详细过程可见 README.md ${ColourReset}" )
     message(FATAL_ERROR)
 endif()
+
+
+add_subdirectory(1.watchdog)
+add_subdirectory(2.panel)
