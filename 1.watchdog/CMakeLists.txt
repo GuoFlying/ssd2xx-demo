@@ -1,3 +1,4 @@
+set(EXECUTABLE_OUTPUT_PATH ${EXECUTABLE_OUTPUT_PATH}/1.watchdog)
 include_directories(${CMAKE_SOURCE_DIR}/1.watchdog/common)
 add_subdirectory(common)
 add_subdirectory(watchdog-test1)
