@@ -44,4 +44,5 @@
 -   [0.common 通用库、第三方开源库等 文档说明](./0.common/common-doc.md)；
 -   [1.watchdog 看门狗 文档说明](./1.watchdog/watchdog-doc.md)；
 -   [2.panel 点屏相关 文档说明](./2.panel/panel-doc.md)；
+-   [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/framebuffer-doc)；
 

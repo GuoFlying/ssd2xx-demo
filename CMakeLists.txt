@@ -32,3 +32,4 @@ endif()
 
 add_subdirectory(1.watchdog)
 add_subdirectory(2.panel)
+add_subdirectory(3.framebuffer)
