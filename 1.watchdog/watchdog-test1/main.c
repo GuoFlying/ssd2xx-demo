@@ -16,8 +16,8 @@ int main(int argc, char **argv)
 
     int fd = watchdog_open();
     
-    //5秒后重启
-    watchdog_start(fd, 5);
+    //20秒后重启
+    watchdog_start(fd, 20);
 
     while (1)
     {

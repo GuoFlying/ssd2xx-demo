@@ -4,6 +4,8 @@ if(CHIP STREQUAL "ssd20x")
     add_subdirectory(ssd20x-ttl-panel-base)
     add_subdirectory(ssd20x-st7789-240x240-sw)
     add_subdirectory(ssd20x-st7789-240x240-hw)
+    add_subdirectory(ssd20x-mipi-1024x600)
+    add_subdirectory(ssd20x-mipi-1440x900)
 elseif(CHIP STREQUAL "ssd2x2")
 
 else()
