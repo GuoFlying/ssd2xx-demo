@@ -36,8 +36,9 @@ int main(int argc, char **argv)
     fb_printf_base_info(fd);
 
     fb_rect_init(fd);
-    fb_rect_draw_full(0xff00ff00);
+    fb_rect_draw_full(0xffffffff);
     fb_rect_draw(50, 50, 100, 100, 0xff0000ff);
-
+    fb_rect_draw(150, 150, 100, 100, 0x7f0000ff);
+    fb_rect_draw(250, 250, 100, 100, 0x3fff0000);
     return 0;
 }
