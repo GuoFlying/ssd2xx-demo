@@ -16,13 +16,15 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 if(CHIP STREQUAL "ssd20x")
     message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
+    add_definitions(-DCHIP_SSD20X)
     include_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/include)
     link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/ex_libs/dynamic)
     link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd20x/mi_libs/dynamic)
 
 elseif(CHIP STREQUAL "ssd2x2")
     message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
-    
+    add_definitions(-DCHIP_SSD2X2)
+
 else()
     message("${Red} 请指定编译目标。eg：cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd20x .. ${ColourReset}" )
     message("${Red} 编译详细过程可见 README.md ${ColourReset}" )

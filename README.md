@@ -37,7 +37,14 @@
     mkdir build
     cd build
     cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd20x ..
-    make 
+    make -j8
+```
+-   若之前`cmake`过其他CHIP需要删除掉之前cmake出来的文件
+```shell
+    cd build
+    rm * -rf
+    cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd2x2 ..
+    make -j8
 ```
 ## demo说明<a name="demoDoc4"></a>
 
