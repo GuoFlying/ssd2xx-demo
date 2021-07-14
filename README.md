@@ -20,11 +20,9 @@
 │   ├── ssd20x             # SSD20x SDK相关库（V030版本）
 │   └── ssd2x2             # SSD2x2 SDK相关库（V013版本）
 ├── 1.watchdog             # 看门狗demo
-│   ├── common             # 看门狗通用API接口
-│   ├── watchdog-test1     # 简单打开看门狗，并设置喂狗时间5秒
-│   └── watchdog-test2     # 命令方式操作看门狗
-├─── 2.panel                    # 点屏相关demo
-│   ├── ssd20x-ttl-panel-base   # 看门狗通用API接口
+├── 2.panel                # 点屏相关demo
+├── 3.framebuffer          # fb 操作demo
+├── 4.littlevgl            # littleVGL demo
 
 ```
 
@@ -52,4 +50,5 @@
 -   [1.watchdog 看门狗 文档说明](./1.watchdog/watchdog-doc.md)；
 -   [2.panel 点屏相关 文档说明](./2.panel/panel-doc.md)；
 -   [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/framebuffer-doc)；
+-   [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/littlevgl-doc)；
 
