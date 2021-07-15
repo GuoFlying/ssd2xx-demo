@@ -51,4 +51,4 @@
 -   [2.panel 点屏相关 文档说明](./2.panel/panel-doc.md)；
 -   [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/framebuffer-doc)；
 -   [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/littlevgl-doc)；
-
+-   [5.wifi  WIFI demo 文档说明](./5.wifi/wifi-doc)；
