@@ -16,3 +16,8 @@
     ${PROJECT_PATH}/release/nvr/i2m/common/glibc/8.2.1/ex_libs
     ${PROJECT_PATH}/release/nvr/i2m/common/glibc/8.2.1/mi_libs
 ```
+
+## iniparser
+- ini 解析库
+- 源码路径：https://gitee.com/mirrors/iniparser.git
+- 当前版本 commit deb85ad4936d4ca32cc2260ce43323d47936410d 
