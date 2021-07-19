@@ -2,11 +2,13 @@ project(common_test)
 
 link_directories(${LIBRARY_OUTPUT_PATH})
 include_directories(${CMAKE_SOURCE_DIR}/0.common/general)
+include_directories(${CMAKE_SOURCE_DIR}/0.common/iniparser)
 
 macro(add_exe n s)
     add_executable(${n} ${s})
     target_link_libraries(${n} "-lpthread -lm -ldl")
     target_link_libraries(${n} common-general)
+    target_link_libraries(${n} common-iniparser)
 endmacro(add_exe)
 
 file(GLOB SRC_FILES ./*.c)
