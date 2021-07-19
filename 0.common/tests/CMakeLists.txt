@@ -5,7 +5,8 @@ include_directories(${CMAKE_SOURCE_DIR}/0.common/general)
 
 macro(add_exe n s)
     add_executable(${n} ${s})
-    target_link_libraries(${n} "-lgeneral -lpthread -lm -ldl")
+    target_link_libraries(${n} "-lpthread -lm -ldl")
+    target_link_libraries(${n} common-general)
 endmacro(add_exe)
 
 file(GLOB SRC_FILES ./*.c)

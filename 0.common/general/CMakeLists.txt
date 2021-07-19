@@ -1,4 +1,4 @@
-project(general)
+project(common-general)
 
 file(GLOB SRC_FILES ./*.c)
 file(GLOB HEAD_FILES ./*.h)

@@ -1,4 +1,4 @@
-project(iniparser)
+project(common-iniparser)
 
 file(GLOB SRC_FILES ./*.c)
 file(GLOB HEAD_FILES ./*.h)
