@@ -27,6 +27,12 @@
 - 源码路径：https://gitee.com/mirrors/iniparser.git
 - 当前版本 commit deb85ad4936d4ca32cc2260ce43323d47936410d 
 
+## list
+- 双链表
+- 源码路径：https://github.com/clibs/list.git
+- 当前版本 commit 6c16b69f14de870ed89d0bcac948d85b7a73513f 
+- [详细说明](./list/Readme.md)
+- [历史说明](./list/History.md)
 
 ## test
 - 0.common 测试相关代码
