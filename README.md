@@ -20,6 +20,8 @@
 │   ├── ssd20x             # SSD20x SDK相关库（V030版本）
 │   ├── ssd2x2             # SSD2x2 SDK相关库（V013版本）
 │   ├── iniparser          # 第三方ini解析库，iniparser
+│   ├── general            # 第三方通用库，如列表、队列、等
+│   ├── tests              # common测试代码
 │   └── 
 ├── 1.watchdog             # 看门狗demo
 ├── 2.panel                # 点屏相关demo
