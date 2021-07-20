@@ -7,7 +7,8 @@
 
 ## 简介<a name="demoDoc1"></a>
 
-里面包含，SSD20x（SSD201、SSD202、SSD203）、SSD21X（SSD212、SSD222）等常用测试DEMO，方便大家验证问题。需要其他的DEMO可联系我。（邮件：weekend@111.com）
+- 里面包含，SSD20x（SSD201、SSD202、SSD203）、SSD21X（SSD212、SSD222）等常用测试DEMO，方便大家验证问题。需要其他的DEMO可联系我。（邮件：weekend@111.com）
+- 文件夹名称数字没有特殊含义，只是按添加DEMO前后顺序命名而已
 
 ## 目录<a name="demoDoc2"></a>
 
@@ -28,7 +29,8 @@
 ├── 3.framebuffer          # fb 操作demo
 ├── 4.littlevgl            # littleVGL demo
 ├── 5.wifi                 # wifi demo
-├── 4.audio                # 音频相关、MI_AI/MI_AO demo
+├── 6.audio                # 音频相关、MI_AI/MI_AO demo
+├── 7.gpio                 # GPIO 操作 demo
 ```
 
 ## 使用说明<a name="demoDoc3"></a>
@@ -58,3 +60,4 @@
 -   [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/littlevgl-doc.md)；
 -   [5.wifi  WIFI demo 文档说明](./5.wifi/wifi-doc.md)；
 -   [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/audio-doc.md)；
+-   [7.gpio  GPIO DEMO 文档说明](./7.gpio/gpio-doc.md)；
