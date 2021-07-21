@@ -1,4 +1,32 @@
 # 概要
+```
+1、dtsi把对应的引脚配置成普通IO模式
+如:
+<PAD_PM_LED0            PINMUX_FOR_GPIO_MODE      MDRV_PUSE_NA>,
+<PAD_PM_LED1            PINMUX_FOR_GPIO_MODE      MDRV_PUSE_NA>,
+
+2、之后进入/sys/class/gpio中可直接操作文件。
+如下概要：
+direction 
+    设置输出还是输入模式 
+    设置为输入：echo “in” > direction
+    设置为输出：echo “out” > direction
+value 
+    输出时，控制高低电平；输入时，获取高低电平 
+    高电平：echo 1 > value
+    低电平：echo 0 > value
+edge 
+    控制中断触发模式，引脚被配置为中断后可以使用poll() 函数监听引脚 
+    非中断引脚： echo “none” > edge
+    上升沿触发：echo “rising” > edge
+    下降沿触发：echo “falling” > edge
+    边沿触发：echo “both” > edge
+
+3、目前只支持上升沿或则下降沿触发。不支持边沿触发。
+
+4、用户态下即可使用poll监听
+
+```
 ### common
 - 通用gpio接口
 

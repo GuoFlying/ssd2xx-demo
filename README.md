@@ -61,3 +61,4 @@
 -   [5.wifi  WIFI demo 文档说明](./5.wifi/wifi-doc.md)；
 -   [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/audio-doc.md)；
 -   [7.gpio  GPIO DEMO 文档说明](./7.gpio/gpio-doc.md)；
+-   [8.pwm  pwm DEMO 文档说明](./8.pwm/pwm-doc.md)；
