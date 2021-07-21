@@ -23,7 +23,8 @@
 │   ├── iniparser          # 第三方ini解析库，iniparser
 │   ├── general            # 第三方通用库，如列表、队列、等
 │   ├── tests              # common测试代码
-│   └── 
+│   ├── list               # 双向链表
+│   └── ###                # END
 ├── 1.watchdog             # 看门狗demo
 ├── 2.panel                # 点屏相关demo
 ├── 3.framebuffer          # fb 操作demo
@@ -31,6 +32,9 @@
 ├── 5.wifi                 # wifi demo
 ├── 6.audio                # 音频相关、MI_AI/MI_AO demo
 ├── 7.gpio                 # GPIO 操作 demo
+├── 8.pwm                  # PWM 操作 demo
+├── 9.uart                 # UART(串口) 操作 demo
+└── ###                    # END
 ```
 
 ## 使用说明<a name="demoDoc3"></a>
@@ -55,6 +59,8 @@
     make help 
     make pwm_test1
 ```
+- **编译后生成的文件在/build/bin & /build/lib**
+
 ## demo说明<a name="demoDoc4"></a>
 
 -   [0.common 通用库、第三方开源库等 文档说明](./0.common/common-doc.md)；
@@ -66,3 +72,4 @@
 -   [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/audio-doc.md)；
 -   [7.gpio  GPIO DEMO 文档说明](./7.gpio/gpio-doc.md)；
 -   [8.pwm  pwm DEMO 文档说明](./8.pwm/pwm-doc.md)；
+-   [9.uart 串口 DEMO 文档说明](./9.uart/uart-doc.md)；
