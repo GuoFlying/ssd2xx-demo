@@ -49,7 +49,11 @@
     cd build
     rm * -rf
     cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd2x2 ..
+    # 全部编译
     make -j8
+    # 可查看有什么demo，之后可指定DEMO编译
+    make help 
+    make pwm_test1
 ```
 ## demo说明<a name="demoDoc4"></a>
 
