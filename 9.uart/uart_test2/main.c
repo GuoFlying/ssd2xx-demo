@@ -16,16 +16,16 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    uart_write_data(fd,"\r\n uart init success: ",sizeof("\r\n uart init success: "));
+    uart_write_buff(fd,"\r\n uart init success: ");
     char data[1024];
     while(1){
         memset(data,0,sizeof(data));
-        //阻塞
+        //非阻塞
         reg = uart_read_data(fd,data,1024);
         if(reg > 0){
             data[reg] = '\0';
             printf("got : %s\n", data);
-            uart_write_data(fd,"\r\n recv: ",sizeof("\r\n recv: "));
+            uart_write_buff(fd,"\r\n recv: ");
             uart_write_data(fd,data,reg);
         }
       

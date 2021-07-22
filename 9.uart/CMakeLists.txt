@@ -4,6 +4,7 @@ add_subdirectory(common)
 add_subdirectory(uart_test1)
 add_subdirectory(uart_test2)
 add_subdirectory(uart_test3_poll)
+add_subdirectory(uart_test4_signal)
 
 if(CHIP STREQUAL "ssd20x")
 
