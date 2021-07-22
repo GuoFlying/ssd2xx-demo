@@ -1,4 +1,4 @@
-project(watchdog-test1)
+project(watchdog_test1)
 
 file(GLOB SRC_FILES ./*.c)
 file(GLOB HEAD_FILES ./*.h)
