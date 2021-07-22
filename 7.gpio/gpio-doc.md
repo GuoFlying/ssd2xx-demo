@@ -48,14 +48,15 @@ edge
 - 寄存器操作参考`kernel/drivers/sstar/samples/riu.c`
 - 寄存器查看数据手册
 - 通过操作寄存器的方式，翻转速度可达21.6MHz
+- 关键：bit5：（0：output ，1：intput）bit4（0：输出低电平，1：输出高电平）bit0：（当前IO口读取到的电平数值）
 - eg:
 ```
 #shell 命令按如下操作可控制gpio
 
 # 控制 gpio43（TTL24）
-    拉高： riu_w 0x103C 0x38 0x0011     
+    拉高： riu_w 0x103C 0x38 0x0010     
     拉低 ：riu_w 0x103C 0x38 0x0000
 # 控制 gpio11 (SPI0_DO)
-    拉高： riu_w 0x103C 0x0b 0x0011     
+    拉高： riu_w 0x103C 0x0b 0x0010     
     拉低 ：riu_w 0x103C 0x0b 0x0000
 ```
