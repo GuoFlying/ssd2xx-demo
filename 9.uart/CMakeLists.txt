@@ -3,6 +3,7 @@ include_directories(${CMAKE_SOURCE_DIR}/9.uart/common)
 add_subdirectory(common)
 add_subdirectory(uart_test1)
 add_subdirectory(uart_test2)
+add_subdirectory(uart_test3_poll)
 
 if(CHIP STREQUAL "ssd20x")
 

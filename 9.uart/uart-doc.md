@@ -37,3 +37,9 @@ vim arch/arm/boot/dts/infinity2m-ssc011a-s01a-padmux-display.dtsi
 
 ### uart_test2
 - 调用了封装的uart接口实现,实现发送接收
+
+### uart_test3_poll
+- 调用了封装的uart接口实现,实现发送接收
+- 开启了一个接收线程，专门接收串口数据
+- 使用了poll IO复用，可保证数据及时收取，并有效降低CPU占用。
+- 接收到最后一个字符为'\n'时 || 数据超过1023个字节 || 500ms没接收到其他数据时，打印接收到是数据

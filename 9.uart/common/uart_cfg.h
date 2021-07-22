@@ -73,6 +73,9 @@ int uart_flush_both_data(const int fd);
 //串口发送数据
 int uart_write_data(const int fd, const uint8_t *send_data,const uint32_t len);
 
+//串口发送字符串
+int uart_write_buff(const int fd, const char *buff);
+
 //串口数据接收
 int uart_read_data(const int fd, uint8_t *recv_data, const uint32_t len);
 

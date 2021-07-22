@@ -179,11 +179,27 @@ int uart_write_data(const int fd, const uint8_t *send_data,
                     const uint32_t len)
 {
     int ret;
-    if (fd < 0)
+    if (fd < 0 || !send_data)
     {
         return -1;
     }
     ret = write(fd, send_data, len);
+    if (len != ret)
+    {
+        return -1;
+    }
+    return 0;
+}
+
+int uart_write_buff(const int fd, const char *buff)
+{
+    int ret;
+    int len =  strlen(buff);
+    if (fd < 0  || !buff)
+    {
+        return -1;
+    }
+    ret = write(fd, buff, len);
     if (len != ret)
     {
         return -1;
@@ -196,7 +212,7 @@ int uart_write_data(const int fd, const uint8_t *send_data,
 int uart_read_data(const int fd, uint8_t *recv_data, const uint32_t len)
 {
     int ret;
-    if (fd < 0)
+    if (fd < 0 || !recv_data)
     {
         return -1;
     }
