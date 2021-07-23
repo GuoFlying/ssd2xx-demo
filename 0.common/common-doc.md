@@ -1,6 +1,6 @@
 # 概要
 ## ssd2x2
--  v013版本的SDK，下的so、include
+-  v014版本的SDK，下的so、include
 -  若后续有更新版本可自行复制过来,地址如下:
 ```shell
     ${PROJECT_PATH}/release/include
