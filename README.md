@@ -34,6 +34,7 @@
 ├── 7.gpio                 # GPIO 操作 demo
 ├── 8.pwm                  # PWM 操作 demo
 ├── 9.uart                 # UART(串口) 操作 demo
+├── 10.video               # 视频、YUV显示等相关demo
 └── ###                    # END
 ```
 
@@ -48,6 +49,8 @@
     cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd20x ..
     make -j8
 ```
+
+#### 编译SSD2x2的DEMO
 -   若之前`cmake`过其他CHIP需要删除掉之前cmake出来的文件
 ```shell
     cd build

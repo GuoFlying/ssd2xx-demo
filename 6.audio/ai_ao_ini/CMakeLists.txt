@@ -18,12 +18,3 @@ add_executable(load_audio_ai_tmp ai_test_main.c ${SOURCES} ${INCLUDES})
 target_link_libraries(load_audio_ai_tmp "-lpthread -ldl -lmi_common  -lmi_sys  -lmi_ao -lmi_ai")
 target_link_libraries(load_audio_ai_tmp  common-iniparser)
 
-add_custom_target(
-    cp-audio ALL
-COMMAND 
-    ${CMAKE_COMMAND} -E make_directory ${EXECUTABLE_OUTPUT_PATH}/wav/
-COMMAND 
-    ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/wav/ ${EXECUTABLE_OUTPUT_PATH}/wav/
-COMMENT
-    "${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/wav ${EXECUTABLE_OUTPUT_PATH}/wav/"
-)
