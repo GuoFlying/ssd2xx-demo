@@ -101,3 +101,11 @@ V(Cr)分量：(720×480 × 1/4)个字节
 ```
 	eg: ./ssd20x_h264_play_test1 res/720P25.h264 h264 1280 720 5 1024 600
 ```
+
+## ssd20x_h264_play_test2
+- 精简ssd20x_h264_play_test1 DEMO。
+- 输入视频必须为h264 1280x720 ，默认输出为1024x600
+- 可理解VDEC和DISP关系
+```
+	eg: ./ssd20x_h264_play_test2 res/720P25.h264
+```
