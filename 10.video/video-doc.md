@@ -94,3 +94,10 @@ V(Cr)分量：(720×480 × 1/4)个字节
 	./ssd2x2_yuv_play_test2 yuv_filename dispinwidth dispinheight
 	eg:./ssd2x2_yuv_play_test2 res/YUV420SP_1280_720_NV12_video.yuv 1280 720
 ```
+
+
+## ssd20x_h264_play_test1
+- 原厂demo，默认点公板屏，可播放h264/h265视频
+```
+	eg: ./ssd20x_h264_play_test1 res/720P25.h264 h264 1280 720 5 1024 600
+```
