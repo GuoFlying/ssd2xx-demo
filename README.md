@@ -73,3 +73,4 @@
 -   [7.gpio  GPIO DEMO 文档说明](./7.gpio/gpio-doc.md)；
 -   [8.pwm  pwm DEMO 文档说明](./8.pwm/pwm-doc.md)；
 -   [9.uart 串口 DEMO 文档说明](./9.uart/uart-doc.md)；
+-   [10.video 视频相关 DEMO 文档说明](./10.video/video-doc.md)；
