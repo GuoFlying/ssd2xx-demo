@@ -3,8 +3,8 @@
 -   [概要](#demoDoc1)
 -   [目录](#demoDoc2)
 -   [使用说明](#demoDoc3)
--   [demo说明](#demoDoc4)
--   [SSD2XX的其他DEMO](#demoDoc5)
+-   [内部DEMO说明](#demoDoc4)
+-   [SSD2XX的其他外部DEMO](#demoDoc5)
 -   [联系我们](#demoDoc6)
 
 ## 简介<a name="demoDoc1"></a>
@@ -66,7 +66,7 @@
 ```
 - **编译后生成的文件在/build/bin & /build/lib**
 
-## demo说明<a name="demoDoc4"></a>
+## DEMO说明<a name="demoDoc4"></a>
 
 -   [0.common 通用库、第三方开源库等 文档说明](./0.common/common-doc.md)；
 -   [1.watchdog 看门狗 文档说明](./1.watchdog/watchdog-doc.md)；
@@ -84,7 +84,7 @@
 
 ## SSD2XX的其他DEMO<a name="demoDoc5"></a>
 ### 一、SSD20x
-#### 1、V030版本的SDK中`sdk`文件夹中会带有一些demo。如下
+#### 1、V030版本的SDK中`sdk`文件夹中会带有一些DEMO。如下
 ```shell
 └── verify
     ├── application
@@ -143,7 +143,7 @@
             └── demo
 
 ```
-#### 2、单独在SDK外的demo可找FAE索取
+#### 2、单独在SDK外的DEMO可找FAE索取
 - 不随SDK发布更新 
 - 如下只有在V08版本才有，有的demo在新版本已经不能正常编译，需要自己修改
 ```shell
@@ -195,7 +195,7 @@
 ```
 
 ### 二、SSD2x2
-#### 1、V014版本的SDK中`sdk`文件夹中会带有一些demo。如下
+#### 1、V014版本的SDK中`sdk`文件夹中会带有一些DEMO。如下
 ```shell
 # V014版本 sdk文件夹
 ├── driver
@@ -265,7 +265,7 @@
 
 ```
 
-#### 2、单独在SDK外的demo可找FAE索取
+#### 2、单独在SDK外的DEMO可找FAE索取
 - 不随SDK发布更新
 ```shell
 # IKAYAKI_ReleaseDemo_20210528_f8248bc.tar.gz
@@ -300,7 +300,7 @@
 ```
 
 ### 三、其他
-#### 1、原厂给的其他demo
+#### 1、原厂给的其他DEMO
 - [github路径 https://github.com/aaron201912?tab=repositories](https://github.com/aaron201912?tab=repositories)
 - 内涵如工厂自带的中科flthings DEMO等，如下所示
 ```shell
@@ -322,5 +322,5 @@
 ```
 
 ## 联系我们<a name="demoDoc6"></a>
-- 问题可直接提`issues`
-- 要可邮件联系我们`weekend@111.com`
+- 有问题可直接提 `issues`
+- 邮件： `weekend@111.com`
