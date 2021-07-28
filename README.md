@@ -4,10 +4,12 @@
 -   [目录](#demoDoc2)
 -   [使用说明](#demoDoc3)
 -   [demo说明](#demoDoc4)
+-   [SSD2XX的其他DEMO](#demoDoc5)
+-   [联系我们](#demoDoc6)
 
 ## 简介<a name="demoDoc1"></a>
 
-- 里面包含，SSD20x（SSD201、SSD202、SSD203）、SSD21X（SSD212、SSD222）等常用测试DEMO，方便大家验证问题。需要其他的DEMO可联系我。（邮件：weekend@111.com）
+- 里面包含，SSD20x（SSD201、SSD202、SSD203）、SSD21X（SSD212、SSD222）等常用测试DEMO，方便大家验证问题。
 - 文件夹名称数字没有特殊含义，只是按添加DEMO前后顺序命名而已
 
 ## 目录<a name="demoDoc2"></a>
@@ -77,3 +79,248 @@
 -   [8.pwm  pwm DEMO 文档说明](./8.pwm/pwm-doc.md)；
 -   [9.uart 串口 DEMO 文档说明](./9.uart/uart-doc.md)；
 -   [10.video 视频相关 DEMO 文档说明](./10.video/video-doc.md)；
+
+
+
+## SSD2XX的其他DEMO<a name="demoDoc5"></a>
+### 一、SSD20x
+#### 1、V030版本的SDK中`sdk`文件夹中会带有一些demo。如下
+```shell
+└── verify
+    ├── application
+    │   ├── bootanimation
+    │   ├── jpeg2disp
+    │   ├── logo
+    ├── feature
+    │   ├── disp
+    │   ├── fb
+    │   │   ├── fb_tc001
+    │   │   ├── fb_tc002
+    │   │   ├── fb_tc003
+    │   │   ├── fb_tc004
+    │   │   ├── fb_tc005
+    │   │   ├── fb_tc006
+    │   │   └── fb_tc007
+    │   └── gfx
+    │       ├── common
+    │       ├── tc_bitblit
+    │       ├── tc_blend
+    │       ├── tc_fillrect
+    │       └── tc_rotate
+    └── mi_demo
+        ├── 3rdparty
+        │   ├── jpeg
+        │   ├── libnl
+        │   ├── openssl
+        │   ├── png
+        │   ├── wpa_supplicant
+        │   └── z
+        ├── amigos
+        │   ├── hdmi_convertor
+        │   ├── internal
+        │   └── preview
+        ├── common
+        │   ├── dla_fw
+        │   ├── iniparser
+        │   ├── live555
+        │   ├── lwfs
+        │   ├── onvif
+        │   ├── opencv
+        │   ├── res
+        │   └── tem
+        ├── geonosis
+        │   ├── audio_all_test_case
+        │   ├── cardv_test
+        │   ├── codec
+        │   ├── fb
+        │   ├── hdmi_test
+        │   ├── internal
+        │   ├── lib
+        │   ├── obj
+        │   ├── vdec
+        │   └── venc
+        └── out
+            └── demo
+
+```
+#### 2、单独在SDK外的demo可找FAE索取
+- 不随SDK发布更新 
+- 如下只有在V08版本才有，有的demo在新版本已经不能正常编译，需要自己修改
+```shell
+# Demo_Release.tar.gz
+├─Airplay
+├─browser
+├─BurnKey
+├─CloudPlay+Wifi
+├─directfb
+├─DisplayDemo
+├─enable_cipher
+├─eventtest 
+├─fb&gfx
+│  └─feature
+│      ├─disp
+│      ├─fb
+│      │  ├─fb_tc001
+│      │  ├─fb_tc002
+│      │  ├─fb_tc003
+│      │  ├─fb_tc004
+│      │  └─fb_tc005
+│      └─gfx
+├─H264Player
+│  └─h264Player
+├─IR
+├─JpegPlayer
+├─jpg_rotate
+├─mini_player
+├─MM
+├─QT
+├─RequestIDR
+├─rw_reg
+├─simplayer
+├─smarttalk_outside
+├─UI_DEMO
+│  ├─directfb
+│  ├─eventtest
+│  ├─GFX
+│  ├─GFX旋转
+│  ├─jpg_rotate
+│  ├─pri_screensaver
+│  ├─pri_statusbar
+│  ├─QT
+│  └─security_SSDUI
+├─usb_camera
+├─vdec_getoutpubuf
+├─wifi
+└─四分屏+PIP
+```
+
+### 二、SSD2x2
+#### 1、V014版本的SDK中`sdk`文件夹中会带有一些demo。如下
+```shell
+# V014版本 sdk文件夹
+├── driver
+│   └── SensorDriver
+└── verify
+    ├── application
+    │   ├── disp_pic_fastboot
+    │   ├── jpeg2disp
+    │   ├── logo
+    │   ├── ota_test
+    │   ├── qfn68_sensor_panel
+    │   ├── smarthome
+    │   ├── smarttalk
+    │   ├── ssplayer
+    │   ├── usbcamera
+    │   └── usbcamera_fastboot
+    ├── feature
+    │   ├── fb
+    │   │   ├── common
+    │   │   ├── fb_clrkey
+    │   │   ├── fb_color
+    │   │   ├── fb_cursor
+    │   │   ├── fb_dbbuf
+    │   │   ├── fb_dispattr
+    │   │   ├── fb_multi
+    │   │   ├── fb_scale
+    │   │   └── fb_total
+    │   └── gfx
+    │       ├── common
+    │       ├── tc_bitblit
+    │       ├── tc_blend
+    │       ├── tc_fillrect
+    │       └── tc_rotate
+    └── mi_demo
+        ├── 3rdparty
+        ├── common
+        │   ├── dla_fw
+        │   ├── iniparser
+        │   ├── lwfs
+        │   ├── onvif
+        │   ├── opencv
+        │   ├── res
+        │   ├── tem
+        │   ├── uac
+        │   └── uvc
+        └── ikayaki
+            ├── audio
+            ├── audio_alg_AEC_demo
+            ├── audio_alg_AED_demo
+            ├── audio_alg_APC_AGC_demo
+            ├── audio_alg_APC_ANR_demo
+            ├── audio_alg_APC_demo
+            ├── audio_alg_APC_EQ_demo
+            ├── audio_alg_BF_demo
+            ├── audio_alg_SRC_demo
+            ├── audio_alg_SSL_demo
+            ├── audio_all_alg_test_case
+            ├── audio_all_test_case
+            ├── audio_g711_codec_demo
+            ├── audio_g726_codec_demo
+            ├── internal
+            ├── mix
+            ├── panel
+            ├── uvc
+            ├── venc
+            └── vpe
+
+```
+
+#### 2、单独在SDK外的demo可找FAE索取
+- 不随SDK发布更新
+```shell
+# IKAYAKI_ReleaseDemo_20210528_f8248bc.tar.gz
+├─audio
+├─fb_demo
+├─fb_gfx
+├─JpegPlayer
+├─panel
+│  ├─PspiDemo
+│  ├─SpiPanel
+│  └─YuvToPanel
+├─rotate
+│  └─rotate420
+│      ├─sstardisp
+│      └─yuv-picture
+├─scanpen
+│  └─internal
+│      ├─common
+│      ├─rgn
+│      ├─vif
+│      └─vpe
+├─sensor
+│  └─internal
+│      ├─common
+│      ├─ive
+│      ├─rgn
+│      ├─spi
+│      ├─vif
+│      └─vpe
+├─uvc
+└─wifi
+```
+
+### 三、其他
+#### 1、原厂给的其他demo
+- [github路径 https://github.com/aaron201912?tab=repositories](https://github.com/aaron201912?tab=repositories)
+- 内涵如工厂自带的中科flthings DEMO等，如下所示
+```shell
+├─ SSD26X_ZK
+├─ ffmpeg               #ffmpeg 交叉编译，使用demo
+├─ SSC268
+├─ SSD222_Demo 
+├─ UuidSSDPlayer        #视频播放器
+├─ hp_customer
+├─ RunTimeDemo          #SSD20x与SSD2x2 的ZK UI DEMO。新版本
+├─ amigos_customer
+├─ Qt5.15_example       # QT DEMO，内涵交叉编译说明
+├─ rtsp-client
+├─ 3rdparty
+├─ SSD20xDemo           
+├─ SSD_PLAYER           #基于ZK UI播放器的IDE。旧版本
+├─ DisplayDemo          #广告发布机Demo
+└─ VideoStream
+```
+
+## 联系我们<a name="demoDoc6"></a>
+- 问题可直接提`issues`
+- 要可邮件联系我们`weekend@111.com`
