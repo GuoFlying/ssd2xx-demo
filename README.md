@@ -37,6 +37,7 @@
 ├── 8.pwm                  # PWM 操作 demo
 ├── 9.uart                 # UART(串口) 操作 demo
 ├── 10.video               # 视频、YUV显示等相关demo
+├── 11.mi_gfx              # MI GFX demo
 └── ###                    # END
 ```
 
@@ -79,6 +80,7 @@
 -   [8.pwm  pwm DEMO 文档说明](./8.pwm/pwm-doc.md)；
 -   [9.uart 串口 DEMO 文档说明](./9.uart/uart-doc.md)；
 -   [10.video 视频相关 DEMO 文档说明](./10.video/video-doc.md)；
+-   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/mi_gfx-doc.md)；
 
 
 
