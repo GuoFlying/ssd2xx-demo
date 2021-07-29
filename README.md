@@ -38,6 +38,7 @@
 ├── 9.uart                 # UART(串口) 操作 demo
 ├── 10.video               # 视频、YUV显示等相关demo
 ├── 11.mi_gfx              # MI GFX demo
+├── 12.mi_disp             # MI DISP demo
 └── ###                    # END
 ```
 
@@ -81,6 +82,7 @@
 -   [9.uart 串口 DEMO 文档说明](./9.uart/uart-doc.md)；
 -   [10.video 视频相关 DEMO 文档说明](./10.video/video-doc.md)；
 -   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/mi_gfx-doc.md)；
+-   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/mi_disp-doc.md)；
 
 
 

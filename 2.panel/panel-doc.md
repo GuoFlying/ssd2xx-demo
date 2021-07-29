@@ -42,3 +42,8 @@
 
 ## ssd20x-mipi-1440x900
 -  还无法使用，调试中。
+
+
+## ssd2x2_ttl_panel_init
+- 按SDK的结构，系统起来后默认已经初始化panel，和使能disp了
+- 但如果其他应用有enable disp后退出，会把disp dis掉，所以需要重新初始化，否则fb无法使用
