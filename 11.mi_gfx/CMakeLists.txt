@@ -1,6 +1,6 @@
 set(EXECUTABLE_OUTPUT_PATH ${EXECUTABLE_OUTPUT_PATH}/11.mi_gfx)
 add_subdirectory(fb_gfx_fill_rect)
-add_subdirectory(fb_gfx_rotate)
+add_subdirectory(fb_gfx_draw_line)
 
 if(CHIP STREQUAL "ssd20x")
     add_subdirectory(gfx_rotate_yuv420)

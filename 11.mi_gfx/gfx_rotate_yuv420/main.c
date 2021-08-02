@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
    
     while (keepRunning)
     {
-        keepRunning++;
+        keepRunning = atoi(argv[4]);
         gettimeofday(&start, NULL);
         
         MI_SYS_ChnInputPortGetBuf(&stSrcChnPort, &stBufConf, &stBufInfo, &bufHandle, 0);

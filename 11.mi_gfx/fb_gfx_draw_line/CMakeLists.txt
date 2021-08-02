@@ -1,4 +1,4 @@
-project(fb_gfx_rotate)
+project(fb_gfx_draw_line)
 
 file(GLOB SRC_FILES ./*.c)
 file(GLOB HEAD_FILES ./*.h)
