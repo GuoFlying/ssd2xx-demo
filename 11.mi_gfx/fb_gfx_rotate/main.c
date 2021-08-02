@@ -15,6 +15,41 @@
 #include "mi_sys.h"
 #include <sys/time.h>
 
+// int __test_rotate_ARGB_90(MI_GFX_Surface_t srcSurf, MI_GFX_Rect_t srcRect,
+//                           MI_GFX_Surface_t dstSurf, MI_GFX_Rect_t dstRect, char *dstData, MI_BOOL bSinkSurf)
+// {
+//     Surface src, dst;
+//     RECT srcClip;
+//     dstSurf.eColorFmt = srcSurf.eColorFmt;
+//     dstSurf.u32Stride = dstSurf.u32Width*getBpp(dstSurf.eColorFmt);
+
+//     dstSurf.u32Height = srcSurf.u32Width;
+//     dstSurf.u32Width = srcSurf.u32Height;
+//     dstSurf.u32Stride = dstSurf.u32Width * getBpp(dstSurf.eColorFmt);
+    
+//     src.eGFXcolorFmt = srcSurf.eColorFmt;
+//     src.BytesPerPixel = getBpp(srcSurf.eColorFmt);
+//     src.h = srcSurf.u32Height;
+//     src.w = srcSurf.u32Width;
+//     src.pitch = src.w * src.BytesPerPixel;
+//     src.phy_addr = srcSurf.phyAddr;
+
+//     dst.eGFXcolorFmt = dstSurf.eColorFmt;
+//     dst.BytesPerPixel = getBpp(dstSurf.eColorFmt);
+//     dst.h = dstSurf.u32Height;
+//     dst.w = dstSurf.u32Width;
+//     dst.pitch = dst.w * dst.BytesPerPixel;
+//     dst.phy_addr = dstSurf.phyAddr;
+
+//     srcClip.left = 0;
+//     srcClip.top = 0;
+//     srcClip.bottom = src.h;
+//     srcClip.right = src.w;
+//     SstarBlitCW(&src, &dst, &srcClip);
+
+//     return 0;
+// }
+
 int main(int argc, char **argv)
 {
     MI_GFX_Surface_t pstDst;
