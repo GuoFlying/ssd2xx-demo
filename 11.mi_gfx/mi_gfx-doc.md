@@ -8,8 +8,8 @@
 - 该DEMO没有点屏初始化动作，若panel没初始化，需要提前初始化
 - 直接运行，全屏绘制成紫色，并在左上角点绘红色方框。ARGB888 
 
-## fb_gfx_rotate
-- 使用GFX对fb进行翻转
+## fb_gfx_draw_line
+- 使用GFX对fb进行画线
 - 该DEMO没有点屏初始化动作，若panel没初始化，需要提前初始化
 
 ## gfx_rotate_yuv420
