@@ -16,3 +16,7 @@
 ### fb_rect_test
 - 简单fb矩形填充demo
 - 可填充 RGB8888/565/1444/1555类型
+
+### bmp_img_24bit
+- 显示24bit的图片到ARGB888上
+- eg:`./bmp_img_24bit res/saturation_800x480_24bit.bmp`
