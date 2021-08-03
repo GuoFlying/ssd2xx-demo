@@ -5,6 +5,7 @@ add_subdirectory(common)
 add_subdirectory(fb_info)
 add_subdirectory(fb_rect_test)
 add_subdirectory(bmp_img_24bit)
+add_subdirectory(jpeg_img)
 
 if(CHIP STREQUAL "ssd20x")
 

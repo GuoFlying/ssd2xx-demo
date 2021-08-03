@@ -37,3 +37,8 @@
 ## test
 - 0.common 测试相关代码
 - 详细说明见代码
+
+## libjpeg
+- libjpeg是一个完全用C语言编写的库，包含了被广泛使用的JPEG解码、JPEG编码和其他的JPEG功能的实现。
+- 动态链接库、头文件
+- [交叉编译说明](./libjpeg/README.md)

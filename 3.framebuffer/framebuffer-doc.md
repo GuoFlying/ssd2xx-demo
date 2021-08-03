@@ -20,3 +20,12 @@
 ### bmp_img_24bit
 - 显示24bit的图片到ARGB888上
 - eg:`./bmp_img_24bit res/saturation_800x480_24bit.bmp`
+
+### jpeg_img
+- 可显示jpg图片到fb上
+- eg：
+```shell
+# 指定libjpeg库路径
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./lib
+./jpeg_img res/detail.jpg
+```
