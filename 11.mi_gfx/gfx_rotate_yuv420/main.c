@@ -56,14 +56,22 @@ int main(int argc, char *argv[])
     {
         printf("MI_SYS_Mmap");
     }
-
+    
     //读取yuv图片信息
     FILE *fp = fopen(argv[1], "rb");
+    if(fp == NULL){
+        printf("fopen error\r\n");
+        return -1;
+    }
     if (fread(image.virtAddr, dispWin.w * dispWin.h * 3 / 2, 1, fp) < 1)
-        printf("reading input file");
+    {
+        printf("reading input file\r\n");
+        fclose(fp);
+        return -1;
+    }
     fclose(fp);
 
-
+    
     MI_DIVP_ChnAttr_t stAttr;
     memset(&stAttr, 0, sizeof(MI_DIVP_ChnAttr_t));
 
@@ -120,7 +128,7 @@ int main(int argc, char *argv[])
    
     while (keepRunning)
     {
-        keepRunning = atoi(argv[4]);
+        keepRunning ++;
         gettimeofday(&start, NULL);
         
         MI_SYS_ChnInputPortGetBuf(&stSrcChnPort, &stBufConf, &stBufInfo, &bufHandle, 0);
