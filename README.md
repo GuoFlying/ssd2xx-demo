@@ -44,6 +44,14 @@
 
 ## 使用说明<a name="demoDoc3"></a>
 
+- 内涵子仓库，克隆后若有需要需要更新子仓库
+```shell
+    git clone https://gitee.com/mFlying/ssd2xx-demo.git
+    cd ssd2xx-demo
+    git submodule init 
+    git submodule update
+```
+
 #### 编译SSD20x的DEMO
 -   交叉编译工具、cmake等工具安装。
 -   编译过程如下：
