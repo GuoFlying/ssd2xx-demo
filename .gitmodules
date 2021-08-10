@@ -1,0 +1,3 @@
+[submodule "10.video/res/ssd20x_player_bin"]
+	path = 10.video/res/ssd20x_player_bin
+	url = https://gitee.com/mFlying/ssd20x_player_bin.git
