@@ -4,7 +4,8 @@ set(EXECUTABLE_OUTPUT_PATH ${EXECUTABLE_OUTPUT_PATH}/10.video)
 if(CHIP STREQUAL "ssd20x")
     add_subdirectory(ssd20x_h264_play_test1)
     add_subdirectory(ssd20x_h264_play_test2)
-
+    add_subdirectory(ssd20x_player_app)
+    
 elseif(CHIP STREQUAL "ssd2x2")
 
     add_subdirectory(ssd2x2_yuv_play_test1)

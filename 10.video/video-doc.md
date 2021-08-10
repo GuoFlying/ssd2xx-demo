@@ -109,3 +109,13 @@ V(Cr)分量：(720×480 × 1/4)个字节
 ```
 	eg: ./ssd20x_h264_play_test2 res/720P25.h264
 ```
+
+## ssd20x_player_app
+- 跨进程视频播放（只是做了个简单的播放，需要其他功能可自行增加）
+- 夸进程播放bin：https://gitee.com/mFlying/UuidSSDPlayer/tree/master/myplayer
+- 编译myplayer后，拷贝相关lib到板子上之后运行可播放视频
+```
+	eg: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./res/ssd20x_player_bin/lib/
+	eg: ./ssd20x_player_app ./res/ssd20x_player_bin/MyPlayer ./res/ssd20x_player_bin/test.mp4 1024 600
+	# ./res/MyPlayer 为播放器进程，需要自己编译 ，并讲依赖库拷贝好才能运行
+```
