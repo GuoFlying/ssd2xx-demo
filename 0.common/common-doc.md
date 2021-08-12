@@ -42,3 +42,13 @@
 - libjpeg是一个完全用C语言编写的库，包含了被广泛使用的JPEG解码、JPEG编码和其他的JPEG功能的实现。
 - 动态链接库、头文件
 - [交叉编译说明](./libjpeg/README.md)
+
+## libsqlite
+- SQLite，是一款轻型的数据库，是遵守ACID的关系型数据库管理系统，它包含在一个相对小的C库中。它是D.RichardHipp建立的公有领域项目。
+- 动态链接库、头文件
+- [交叉编译说明](./libsqlite/README.md)
+
+## libmad
+- MAD （libmad）是一个开源的高精度 MPEG 音频解码库，支持 MPEG-1（Layer I, Layer II 和 LayerIII（也就是 MP3）。LIBMAD 提供 24-bit 的 PCM 输出，完全是定点计算，非常适合没有浮点支持的平台上使用。使用 libmad 提供的一系列 API，就可以非常简单地实现 MP3 数据解码工作。在 libmad 的源代码文件目录下的 mad.h 文件中，可以看到绝大部分该库的数据结构和 API 等。
+- 动态链接库、头文件
+- [交叉编译说明](./libmad/README.md)

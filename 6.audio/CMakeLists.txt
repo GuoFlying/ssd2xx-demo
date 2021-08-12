@@ -1,9 +1,9 @@
 set(EXECUTABLE_OUTPUT_PATH ${EXECUTABLE_OUTPUT_PATH}/6.audio)
 
-
 if(CHIP STREQUAL "ssd20x")
 
     add_subdirectory(ai_ao_ini)
+    add_subdirectory(mp3_player)
 
 elseif(CHIP STREQUAL "ssd2x2")
 

@@ -7,3 +7,12 @@
 -  主要使用MI的AI、AO的接口
 -  **运行demo时，会在运行路径下创建ini文件，需要确保当前运行的文件夹有写的权限。否则可能运行失败**
 -   [详细说明](./ai_ao_ini/README.md)；
+
+
+## mp3_player
+- 原厂简单MP3播放 https://gitee.com/mFlying/RunTimeDemo/tree/master/MultiPlayer/mp3player
+- 运行
+```shell
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./lib
+./Mp3Player layout_test.mp3
+```
