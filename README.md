@@ -1,24 +1,26 @@
 # SSD系列应用demo<a name="demoDoc"></a>
 
--   [概要](#demoDoc1)
--   [目录](#demoDoc2)
--   [使用说明](#demoDoc3)
--   [内部DEMO说明](#demoDoc4)
--   [SSD2XX的其他外部DEMO](#demoDoc5)
--   [联系我们](#demoDoc6)
+-   [一、概要](#demoDoc1)
+-   [二、目录](#demoDoc2)
+-   [三、使用说明](#demoDoc3)
+-   [四、内部DEMO说明](#demoDoc4)
+-   [五、SSD2XX的其他外部DEMO](#demoDoc5)
+-   [六、其他文档说明](#demoDoc7)
+-   [七、联系我们](#demoDoc6)
 
-## 简介<a name="demoDoc1"></a>
+## 一、简介<a name="demoDoc1"></a>
 
 - 里面包含，SSD20x（SSD201、SSD202、SSD203）、SSD21X（SSD212、SSD222）等常用测试DEMO，方便大家验证问题。
 - 文件夹名称数字没有特殊含义，只是按添加DEMO前后顺序命名而已
 
-## 目录<a name="demoDoc2"></a>
+## 二、目录<a name="demoDoc2"></a>
 
 ```
 /ssd2xx-demo
 ├── CMakeLists.txt         # cmake lists，工程配置，用于cmake编译
 ├── toolchain.cmake        # cmake交叉编译配置
 ├── README.md              # 说明文档总入口
+├── doc                    # 说明文档
 ├── 0.common               # 公用lib、include、第三方库等
 │   ├── ssd20x             # SSD20x SDK相关库（V030版本）
 │   ├── ssd2x2             # SSD2x2 SDK相关库（V013版本）
@@ -42,7 +44,7 @@
 └── ###                    # END
 ```
 
-## 使用说明<a name="demoDoc3"></a>
+## 三、使用说明<a name="demoDoc3"></a>
 
 - 内涵子仓库，克隆后若有需要需要更新子仓库
 ```shell
@@ -76,7 +78,7 @@
 ```
 - **编译后生成的文件在/build/bin & /build/lib**
 
-## DEMO说明<a name="demoDoc4"></a>
+## 四、DEMO说明<a name="demoDoc4"></a>
 
 -   [0.common 通用库、第三方开源库等 文档说明](./0.common/common-doc.md)；
 -   [1.watchdog 看门狗 文档说明](./1.watchdog/watchdog-doc.md)；
@@ -92,9 +94,11 @@
 -   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/mi_gfx-doc.md)；
 -   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/mi_disp-doc.md)；
 
+## 五、其他文档说明<a name="demoDoc7"></a>
+-   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)；
+-   [uboot添加自己的cli命令](./doc/uboot_add_cmd/README.md)；
 
-
-## SSD2XX的其他DEMO<a name="demoDoc5"></a>
+## 六、SSD2XX的其他DEMO<a name="demoDoc5"></a>
 ### 一、SSD20x
 #### 1、V030版本的SDK中`sdk`文件夹中会带有一些DEMO。如下
 ```shell
@@ -333,6 +337,6 @@
 └─ VideoStream
 ```
 
-## 联系我们<a name="demoDoc6"></a>
+## 七、联系我们<a name="demoDoc6"></a>
 - 有问题可直接提 `issues`
 - 邮件： `weekend@111.com`
