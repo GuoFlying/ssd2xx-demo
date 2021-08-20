@@ -98,6 +98,7 @@
 -   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)；
 -   [uboot添加自己的cli命令](./doc/uboot_add_cmd/README.md)；
 -   [ssd2x2修改kernel配置（make menuconfig）方法](./doc/ssd2x2_kernel_config_set/README.md)；
+-   [应用内存检测工具valgrind概要](./doc/valgrind/README.md)；
 
 ## 六、SSD2XX的其他DEMO<a name="demoDoc5"></a>
 ### 一、SSD20x
