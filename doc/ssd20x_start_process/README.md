@@ -36,6 +36,7 @@
  ROOTFS | 文件系统
  UBI | UBI的内容在上图分区表中不会显示出来，UBI中会创建多个ubifs格式的子分区，客户可以根据需要自行创建。Spinand的miservice分区就是放在UBI中
 ### 1.4启动方式选择流程
+- Security boot启动流程会IPL等分区做安全性校验，这边不涉及（有特殊申请的客户才会开放该资料）。
 ![doc/ssd20x_start_process/res/启动方式选择流程.jpg](./res/启动方式选择流程.jpg)
 
 ### 1.5、NOR flash启动流程
@@ -48,7 +49,7 @@
 ### 2.1 uboot启动流程
 - 标准的uboot启动流程在网上均能看到如
    - 嵌入式Linux开发之uboot启动Linux整体流程分析 - ZhangyiStudio - 博客园 https://www.cnblogs.com/zhangyi-studio/p/8179795.html
-- 这边只说明SSD20x上常用、特殊需要注意的升级流程。
+- 这边只说明SSD20x上常用、特殊需要注意的启动流程。
 - 其他说明：
    - uboot主函数程序如下`common/main.c`
    - 若需要添加自己下cli命令可参考 [uboot下添加自己的cli命令](../uboot_add_cmd/README.md)；
