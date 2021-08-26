@@ -16,12 +16,7 @@ int main(int argc, char *argv[])
     int hor_res = 800;
     int ver_res = 480;
 
-    if (argc >= 3)
-    {
-        hor_res = atoi(argv[1]);
-        ver_res = atoi(argv[2]);
-    }
-    else if (argc >= 4)
+    if (argc >= 4)
     {
         demo_id = atoi(argv[3]);
     }
