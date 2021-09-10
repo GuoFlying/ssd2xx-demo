@@ -104,7 +104,7 @@
 -   [网络测试工具iperf3 说明](./doc/iperf3/README.md)
 -   [NAT/iptables概要说明，ap、eth桥接说明](./doc/NAT/README.md)
 -   [SSD202x wifi测试命令wpa_cli使用](./doc/ssd202_other/wifi_test.md)
--   [SSD2X2,SDK编译支持SSW101B(USBwifi)说明]](./doc/other/ssd21x_sup_ssw101.md)
+-   [SSD2X2,SDK编译支持SSW101B(USBwifi)说明](./doc/other/ssd21x_sup_ssw101.md)
 
 ## 六、SSD2XX的其他DEMO<a name="demoDoc5"></a>
 ### 一、SSD20x
