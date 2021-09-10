@@ -95,13 +95,16 @@
 -   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/mi_disp-doc.md)；
 
 ## 五、其他文档说明<a name="demoDoc7"></a>
--   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)；
+-   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)
 -   [uboot添加自己的cli命令](./doc/uboot_add_cmd/README.md)；
 -   [ssd2x2修改kernel配置（make menuconfig）方法](./doc/ssd2x2_kernel_config_set/README.md)；
 -   [应用内存检测工具valgrind概要](./doc/valgrind/README.md)；
 -   [应用下载到公板方法列举](./doc/file_download/README.md)；
 -   [SSD20x RTC配置说明](./doc/ssd202_other/rtc_config_readme.md)；
--   [网络测试工具iperf3 说明](./doc/iperf3/README.md)；
+-   [网络测试工具iperf3 说明](./doc/iperf3/README.md)
+-   [NAT/iptables概要说明，ap、eth桥接说明](./doc/NAT/README.md)
+-   [SSD202x wifi测试命令wpa_cli使用](./doc/ssd202_other/wifi_test.md)
+-   [SSD2X2,SDK编译支持SSW101B(USBwifi)说明]](./doc/other/ssd21x_sup_ssw101.md)
 
 ## 六、SSD2XX的其他DEMO<a name="demoDoc5"></a>
 ### 一、SSD20x
