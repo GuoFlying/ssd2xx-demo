@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 
     if (argc >= 4)
     {
+        hor_res = atoi(argv[1]);
+        ver_res = atoi(argv[2]);
         demo_id = atoi(argv[3]);
     }
     else
