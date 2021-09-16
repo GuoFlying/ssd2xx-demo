@@ -80,19 +80,19 @@
 
 ## 四、DEMO说明<a name="demoDoc4"></a>
 
--   [0.common 通用库、第三方开源库等 文档说明](./0.common/common-doc.md)；
--   [1.watchdog 看门狗 文档说明](./1.watchdog/watchdog-doc.md)；
--   [2.panel 点屏相关 文档说明](./2.panel/panel-doc.md)；
--   [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/framebuffer-doc.md)；
--   [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/littlevgl-doc.md)；
--   [5.wifi  WIFI demo 文档说明](./5.wifi/wifi-doc.md)；
--   [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/audio-doc.md)；
--   [7.gpio  GPIO DEMO 文档说明](./7.gpio/gpio-doc.md)；
--   [8.pwm  pwm DEMO 文档说明](./8.pwm/pwm-doc.md)；
--   [9.uart 串口 DEMO 文档说明](./9.uart/uart-doc.md)；
--   [10.video 视频相关 DEMO 文档说明](./10.video/video-doc.md)；
--   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/mi_gfx-doc.md)；
--   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/mi_disp-doc.md)；
+-   [0.common 通用库、第三方开源库等 文档说明](./0.common/README.md)；
+-   [1.watchdog 看门狗 文档说明](./1.watchdog/README.md)；
+-   [2.panel 点屏相关 文档说明](./2.panel/README.md)；
+-   [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/README.md)；
+-   [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/README.md)；
+-   [5.wifi  WIFI demo 文档说明](./5.wifi/README.md)；
+-   [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/README.md)；
+-   [7.gpio  GPIO DEMO 文档说明](./7.gpio/README.md)；
+-   [8.pwm  pwm DEMO 文档说明](./8.pwm/README.md)；
+-   [9.uart 串口 DEMO 文档说明](./9.uart/README.md)；
+-   [10.video 视频相关 DEMO 文档说明](./10.video/README.md)；
+-   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/README.md)；
+-   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/README.md)；
 
 ## 五、其他文档说明<a name="demoDoc7"></a>
 -   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)
