@@ -52,3 +52,9 @@
 - MAD （libmad）是一个开源的高精度 MPEG 音频解码库，支持 MPEG-1（Layer I, Layer II 和 LayerIII（也就是 MP3）。LIBMAD 提供 24-bit 的 PCM 输出，完全是定点计算，非常适合没有浮点支持的平台上使用。使用 libmad 提供的一系列 API，就可以非常简单地实现 MP3 数据解码工作。在 libmad 的源代码文件目录下的 mad.h 文件中，可以看到绝大部分该库的数据结构和 API 等。
 - 动态链接库、头文件
 - [交叉编译说明](./libmad/README.md)
+
+## libevnet
+- Libevent 是一个用C语言编写的、轻量级的开源高性能事件通知库，主要有以下几个亮点：事件驱动（ event-driven），高性能;轻量级，专注于网络，不如 ACE 那么臃肿庞大；源代码相当精炼、易读；跨平台，支持 Windows、 Linux、 *BSD 和 Mac Os；支持多种 I/O 多路复用技术， epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O，定时器和信号等事件；注册事件优先级。
+- Libevent 已经被广泛的应用，作为底层的网络库；比如 memcached、 Vomit、 Nylon、 Netchat等等
+- 动态链接库、头文件
+- [交叉编译说明](./libevent/README.md)
