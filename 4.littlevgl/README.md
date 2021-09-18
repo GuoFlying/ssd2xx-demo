@@ -7,11 +7,12 @@
 
 ## 说明
 #### demo使用
-- ./littlevgl
+##### 1、lv_demos_app
+- ./lv_demos_app
 
 默认使用800*480 第三个demo
 
-- ./littlevgl 1024 600 3
+- ./lv_demos_app 1024 600 3
 
 表示使用1024*600的屏幕，使用第3个lvgl的demo
 
@@ -22,6 +23,22 @@
     2：键盘播放器
     3：widgets 
 ```
+##### 2、lv_test_all_app
+- ./lv_test_all_app
+
+默认使用800*480 第三个demo
+
+- ./lv_test_all_app 1024 600 3
+- 可执行 lv_test_all_app_test.sh 脚本快速预览所有demo
+
+表示使用1024*600的屏幕，使用第3个lvgl的demo
+
+- demo说明
+```
+    lvgl 组件测试的全部demo
+```
+
+
 #### lv_demos
 
 - V8.0.1
