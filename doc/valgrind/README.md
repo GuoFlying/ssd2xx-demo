@@ -199,4 +199,51 @@ make install
  5972     ;;
 
 ```
-#### **这边已经有编译一份见`doc/valgrind/res/build`**
+### 报错说明
+- 执行时提示`valgrind: failed to start tool 'memcheck' for platform 'arm-linux': Not a directory`错误是因为找不到lib库，使用时需要额外设置libexec的路径，如下所示
+- libexec太大了，这边不上传，有需要的自行交叉编译
+```
+# 设置libexec环境变量位置，否则无法使用。需要根据自己板子的位置，自行修改
+export VALGRIND_LIB="/vendor/res/libexec/valgrind"
+# 测试 ，能正常打印出版本好才行。
+./valgrind --version
+```
+
+-  版本可正常打印，但之后测试命令`/valgrind ls -l`后会会报错，如下所示
+```
+==870== Memcheck, a memory error detector
+==870== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==870== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==870== Command: ../../main
+==870== 
+
+valgrind:  Fatal error at startup: a function redirection
+valgrind:  which is mandatory for this platform-tool combination
+valgrind:  cannot be set up.  Details of the redirection are:
+valgrind:  
+valgrind:  A must-be-redirected function
+valgrind:  whose name matches the pattern:      index
+valgrind:  in an object with soname matching:   ld-linux-armhf.so.3
+valgrind:  was not found whilst processing
+valgrind:  symbols from the object with soname: ld-linux-armhf.so.3
+valgrind:  
+valgrind:  Possible fixes: (1, short term): install glibc's debuginfo
+valgrind:  package on this machine.  (2, longer term): ask the packagers
+valgrind:  for your Linux distribution to please in future ship a non-
+valgrind:  stripped ld.so (or whatever the dynamic linker .so is called)
+valgrind:  that exports the above-named function using the standard
+valgrind:  calling conventions for this platform.  The package you need
+valgrind:  to install for fix (1) is called
+valgrind:  
+valgrind:    On Debian, Ubuntu:                 libc6-dbg
+valgrind:    On SuSE, openSuSE, Fedora, RHEL:   glibc-debuginfo
+valgrind:  
+valgrind:  Note that if you are debugging a 32 bit process on a
+valgrind:  64 bit system, you will need a corresponding 32 bit debuginfo
+valgrind:  package (e.g. libc6-dbg:i386).
+valgrind:  
+valgrind:  Cannot continue -- exiting now.  Sorry.
+
+```
+- 以上错误是因为没有libc6-dbg，所以需要再次安装libc6-dbg，也就需要gdb，后续有使用到gdb后在进行移植。
+
