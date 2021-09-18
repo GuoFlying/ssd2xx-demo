@@ -93,6 +93,7 @@
 -   [10.video 视频相关 DEMO 文档说明](./10.video/README.md)；
 -   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/README.md)；
 -   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/README.md)；
+-   [13.读取芯片唯一标识UUID并设置为eth0的MAC](./13.uuid/README.md)；
 
 ## 五、其他文档说明<a name="demoDoc7"></a>
 -   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)

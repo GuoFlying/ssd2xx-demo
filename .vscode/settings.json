@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdint.h": "c",
+        "stdio.h": "c",
+        "mi_common_datatype.h": "c"
+    }
+}
