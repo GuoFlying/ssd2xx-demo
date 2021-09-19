@@ -1,5 +1,6 @@
 add_subdirectory(lv_demos_app)
 add_subdirectory(lv_test_all_app)
+add_subdirectory(lv_lib_png_test_app)
 
 add_custom_target(
     cp-lvgl-f_apps-sh ALL

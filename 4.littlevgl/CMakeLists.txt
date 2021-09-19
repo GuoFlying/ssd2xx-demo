@@ -26,7 +26,7 @@ macro(add_static_lib _name _path)
     foreach(_lib_item ${ARGN})
         target_link_libraries(${_name} ${_lib_item})
     endforeach(_lib_item)
-    
+
 endmacro(add_static_lib)
 
 exists_file_lvgl()
@@ -39,13 +39,22 @@ if(${_result})
     add_static_lib(f_lvgl lvgl )
     add_static_lib(f_lv_drivers lv_drivers )
     add_static_lib(f_lv_demos lv_demos f_lvgl )
+    add_static_lib(f_lv_lib_png lv_lib_png )
 
     add_subdirectory(f_apps) 
-
+    
 else() 
 
     message("若需要编译lvgl则需要更新子仓库，详情见README.md")
     
 endif() 
 
-
+add_custom_target(
+    cp-lvgl ALL
+COMMAND 
+    ${CMAKE_COMMAND} -E make_directory ${EXECUTABLE_OUTPUT_PATH}/res/
+COMMAND 
+    ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res/ ${EXECUTABLE_OUTPUT_PATH}/res/
+COMMENT
+    "${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${EXECUTABLE_OUTPUT_PATH}/res/"
+)

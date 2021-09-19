@@ -7,14 +7,12 @@
 
 ## 说明
 #### demo使用
-##### 1、lv_demos_app
-- ./lv_demos_app
+- 这边 的 demo 默认前2个参数为设置宽高
+- 默认 1024*600
 
-默认使用800*480 第三个demo
-
+##### 1、 lv_demos_app
 - ./lv_demos_app 1024 600 3
-
-表示使用1024*600的屏幕，使用第3个lvgl的demo
+   - 表示使用1024*600的屏幕，使用第3个lvgl的demo
 
 - demo说明
 ```
@@ -23,33 +21,14 @@
     2：键盘播放器
     3：widgets 
 ```
-##### 2、lv_test_all_app
-- ./lv_test_all_app
-
-默认使用800*480 第三个demo
-
+##### 2、 lv_test_all_app
+- lvgl 官方组件测试的全部demo
 - ./lv_test_all_app 1024 600 3
-- 可执行 shell_lv_test_all_app.sh 脚本快速预览所有demo
+   - 可执行 shell_lv_test_all_app.sh 脚本快速预览所有demo
+   - 表示使用1024*600的屏幕，使用第3个lvgl的demo
 
-表示使用1024*600的屏幕，使用第3个lvgl的demo
-
-- demo说明
-```
-    lvgl 组件测试的全部demo
-```
+##### 3、 lv_lib_png_test_app
+- png 解码测试demo
+- ./lv_lib_png_test_app 1024 600 ./res/png_decoder_test.png
 
 
-#### lv_demos
-
-- V8.0.1
-- https://github.com/lvgl/lv_demos.git
-
-#### lv_drivers
-
-- V8.0.1
-- https://github.com/lvgl/lv_drivers.git
-
-#### lvgl
-
-- V8.0.1
-- https://github.com/lvgl/lvgl.git

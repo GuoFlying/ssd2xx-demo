@@ -10,3 +10,6 @@
 [submodule "4.littlevgl/lv_drivers"]
 	path = 4.littlevgl/lv_drivers
 	url = https://github.com.cnpmjs.org/lvgl/lv_drivers
+[submodule "4.littlevgl/lv_lib_png"]
+	path = 4.littlevgl/lv_lib_png
+	url = https://github.com.cnpmjs.org/lvgl/lv_lib_png.git
