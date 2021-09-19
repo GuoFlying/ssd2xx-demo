@@ -8,4 +8,4 @@ include_directories(${PROJECT_SOURCE_DIR})
 add_executable(${PROJECT_NAME} main.c  ${HEAD_FILES})
 
 target_link_libraries(${PROJECT_NAME} "-lpthread")
-target_link_libraries(${PROJECT_NAME} lib_lvgl)
+target_link_libraries(${PROJECT_NAME} f_lvgl f_lv_drivers)
