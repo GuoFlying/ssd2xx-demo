@@ -1,3 +1,12 @@
 [submodule "10.video/res/ssd20x_player_bin"]
 	path = 10.video/res/ssd20x_player_bin
 	url = https://gitee.com/mFlying/ssd20x_player_bin.git
+[submodule "4.littlevgl/lvgl"]
+	path = 4.littlevgl/lvgl
+	url = https://github.com.cnpmjs.org/lvgl/lvgl
+[submodule "4.littlevgl/lv_demos"]
+	path = 4.littlevgl/lv_demos
+	url = https://github.com.cnpmjs.org/lvgl/lv_demos
+[submodule "4.littlevgl/lv_drivers"]
+	path = 4.littlevgl/lv_drivers
+	url = https://github.com.cnpmjs.org/lvgl/lv_drivers

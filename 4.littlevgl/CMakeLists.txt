@@ -4,12 +4,20 @@ macro(exists_file_lvgl)
     if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lvgl/lvgl.h)
         set(_result FALSE)
     endif()
+
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_demos/lv_demo_conf_template.h)
+    set(_result FALSE)
+    endif()
+
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_drivers/lv_drv_conf_template.h)
+    set(_result FALSE)
+    endif()
     
 endmacro(exists_file_lvgl)
 
 exists_file_lvgl()
 if(${_result}) 
-    message("正常编译")
+
     set(EXECUTABLE_OUTPUT_PATH ${EXECUTABLE_OUTPUT_PATH}/4.littlevgl)
     project(lib_lvgl)
 
