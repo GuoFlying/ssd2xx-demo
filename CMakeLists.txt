@@ -29,6 +29,12 @@ elseif(CHIP STREQUAL "ssd2x2")
     include_directories(${CMAKE_SOURCE_DIR}/0.common/ssd2x2/include)
     link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd2x2/ex_libs/dynamic)
     link_directories(${CMAKE_SOURCE_DIR}/0.common/ssd2x2/mi_libs/dynamic)
+
+elseif(CHIP STREQUAL "mp157")
+    # eg：cmake -D CMAKE_TOOLCHAIN_FILE=toolchain_mp157.cmake -D CHIP=mp157 ..
+    message("${Green} 当前使用demo适用于：${CHIP} ${ColourReset}")
+    add_definitions(-DCHIP_MP157)
+
 else()
     message("${Red} 请指定编译目标。eg：cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd20x .. ${ColourReset}" )
     message("${Red} 编译详细过程可见 README.md ${ColourReset}" )
