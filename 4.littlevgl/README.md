@@ -29,7 +29,7 @@
 默认使用800*480 第三个demo
 
 - ./lv_test_all_app 1024 600 3
-- 可执行 lv_test_all_app_test.sh 脚本快速预览所有demo
+- 可执行 shell_lv_test_all_app.sh 脚本快速预览所有demo
 
 表示使用1024*600的屏幕，使用第3个lvgl的demo
 
