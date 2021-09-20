@@ -13,14 +13,12 @@
 ##### 1、 lv_demos_app
 - ./lv_demos_app 1024 600 3
    - 表示使用1024*600的屏幕，使用第3个lvgl的demo
-
 - demo说明
-```
-    0：音乐播放器
-    1：压力测试
-    2：键盘播放器
-    3：widgets 
-```
+   - 0：音乐播放器
+   - 1：压力测试
+   - 2：键盘播放器
+   - 3：widgets 
+
 ##### 2、 lv_test_all_app
 - lvgl 官方组件测试的全部demo
 - ./lv_test_all_app 1024 600 3
@@ -31,4 +29,6 @@
 - png 解码测试demo
 - ./lv_lib_png_test_app 1024 600 ./res/png_decoder_test.png
 
-
+##### 4、 lv_lib_gif_test_app
+- gif 解码测试demo
+- ./lv_lib_gif_test_app 1024 600 

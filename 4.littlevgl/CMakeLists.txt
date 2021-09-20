@@ -3,16 +3,29 @@ set(_result TRUE)
 macro(exists_file_lvgl)
     if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lvgl/lvgl.h)
         set(_result FALSE)
+        message("lvgl")
     endif()
 
     if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_demos/lv_demo_conf_template.h)
         set(_result FALSE)
+        message("lv_demos")
     endif()
 
     if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_drivers/lv_drv_conf_template.h)
         set(_result FALSE)
+        message("lv_drivers")
     endif()
-    
+
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_lib_png/lv_png.h)
+        set(_result FALSE)
+        message("lv_lib_png")
+    endif()
+
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_lib_gif/lv_gif.h)
+        set(_result FALSE)
+        message("lv_lib_gif")
+    endif()
+
 endmacro(exists_file_lvgl)
 
 
@@ -40,6 +53,7 @@ if(${_result})
     add_static_lib(f_lv_drivers lv_drivers )
     add_static_lib(f_lv_demos lv_demos f_lvgl )
     add_static_lib(f_lv_lib_png lv_lib_png )
+    add_static_lib(f_lv_lib_gif lv_lib_gif f_lvgl )
 
     add_subdirectory(f_apps) 
     

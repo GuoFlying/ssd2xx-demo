@@ -13,3 +13,6 @@
 [submodule "4.littlevgl/lv_lib_png"]
 	path = 4.littlevgl/lv_lib_png
 	url = https://github.com.cnpmjs.org/lvgl/lv_lib_png.git
+[submodule "4.littlevgl/lv_lib_gif"]
+	path = 4.littlevgl/lv_lib_gif
+	url = https://github.com.cnpmjs.org/lvgl/lv_lib_gif.git

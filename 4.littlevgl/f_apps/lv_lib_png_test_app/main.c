@@ -1,7 +1,7 @@
 #include "../base_main.fc"
 #include "lvgl/lvgl.h"
 #include "lv_lib_png/lv_png.h"
-
+#include <assert.h>
 void f_app_main(int argc, char *argv[])
 {
     char *png_path = NULL;
@@ -12,8 +12,11 @@ void f_app_main(int argc, char *argv[])
     }
     else
     {
-        fprintf(stderr, "Warring: Usage: %s [w,h] [png_path]\r\n"
-                "eg: %s 1024 600 ./res/test.png ",argv[0], argv[0]);
+        fprintf(stderr, "error: Usage: %s [w,h] [png_path]\r\n"
+                        "eg: %s 1024 600 ./res/test.png ",
+                argv[0], argv[0]);
+        assert(argv[3]);
+        return;
     }
 
     lv_png_init();
@@ -27,8 +30,8 @@ void f_app_main(int argc, char *argv[])
 
     lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
     lv_anim_set_var(&a, img);
-    lv_anim_set_time(&a, 1000);
-    lv_anim_set_values(&a, 1, 512);
+    lv_anim_set_time(&a, 2000);
+    lv_anim_set_values(&a, 512, LV_IMG_ZOOM_NONE);
     lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_zoom);
     lv_anim_set_ready_cb(&a, NULL);
 
