@@ -32,3 +32,8 @@
 ##### 4、 lv_lib_gif_test_app
 - gif 解码测试demo
 - ./lv_lib_gif_test_app 1024 600 
+
+##### 5、f_game_2048
+- 参考100ask 7.11版本2048
+- 2048 小游戏
+- ./f_game_2048 1024 600 
