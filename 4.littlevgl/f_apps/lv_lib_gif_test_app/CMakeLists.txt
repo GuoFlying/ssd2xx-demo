@@ -7,4 +7,4 @@ include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable(${PROJECT_NAME} main.c  ${HEAD_FILES})
 
-target_link_libraries(${PROJECT_NAME} f_lvgl f_lv_drivers f_lv_lib_gif)
+target_link_libraries(${PROJECT_NAME} f_lvgl f_lv_drivers f_lv_lib_gif f_lv_fs_if)
