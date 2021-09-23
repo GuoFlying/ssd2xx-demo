@@ -22,3 +22,6 @@
 [submodule "4.littlevgl/lv_fs_if"]
 	path = 4.littlevgl/lv_fs_if
 	url = https://github.com.cnpmjs.org/lvgl/lv_fs_if.git
+[submodule "4.littlevgl/lv_lib_freetype"]
+	path = 4.littlevgl/lv_lib_freetype
+	url = https://github.com.cnpmjs.org/lvgl/lv_lib_freetype.git

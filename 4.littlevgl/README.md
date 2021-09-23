@@ -31,9 +31,17 @@
 
 ##### 4、 lv_lib_gif_test_app
 - gif 解码测试demo
-- ./lv_lib_gif_test_app 1024 600 
+- ./lv_lib_gif_test_app 1024 600 ./res/example.gif
 
 ##### 5、f_game_2048
 - 参考100ask 7.11版本2048
 - 2048 小游戏
 - ./f_game_2048 1024 600 
+
+##### lv_lib_split_jpg_test_app
+- 解码3张jpg图片并切换显示，默认调用./res/1.jpg 2.jpg 3.jpg
+- ./lv_lib_split_jpg_test_app 1024 600 
+
+##### 7、lv_lib_freetype_test_app
+- LVGL默认只有英文字体，若要用中文就会用到freetype
+- ./lv_lib_freetype_test_app 1024 600 ./res/GBK_Mobil.TTF

@@ -36,6 +36,10 @@ macro(exists_file_lvgl)
         message("lv_fs_if")
     endif()
 
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_lib_freetype/lv_freetype.h)
+    set(_result FALSE)
+    message("lv_lib_freetype")
+    endif()
 endmacro(exists_file_lvgl)
 
 
@@ -66,7 +70,21 @@ if(${_result})
     add_static_lib(f_lv_lib_gif lv_lib_gif f_lvgl )
     add_static_lib(f_lv_lib_split_jpg lv_lib_split_jpg )
     add_static_lib(f_lv_fs_if lv_fs_if )
-    
+
+    # 编译freetype相关
+    include_directories(${CMAKE_SOURCE_DIR}/0.common/freetype2/include/freetype2)
+
+    if(CHIP STREQUAL "ssd20x")
+        link_directories(${CMAKE_SOURCE_DIR}/0.common/freetype2/ssd20x/static)
+    elseif(CHIP STREQUAL "ssd2x2")
+        link_directories(${CMAKE_SOURCE_DIR}/0.common/freetype2/ssd20x/static)
+    else()
+        #link_directories(${CMAKE_SOURCE_DIR}/0.common/freetype2/stm32mp157/share)
+        link_directories(${CMAKE_SOURCE_DIR}/0.common/freetype2/stm32mp157/static)
+    endif()
+
+    add_static_lib(f_lv_lib_freetype lv_lib_freetype "-lfreetype")
+
     add_subdirectory(f_apps) 
     
 else() 
