@@ -3,6 +3,8 @@ add_subdirectory(lv_test_all_app)
 add_subdirectory(lv_lib_png_test_app)
 add_subdirectory(lv_lib_gif_test_app)
 add_subdirectory(f_game_2048)
+add_subdirectory(lv_lib_split_jpg_test_app)
+
 
 add_custom_target(
     cp-lvgl-f_apps-sh ALL

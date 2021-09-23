@@ -42,7 +42,7 @@
  *=========================*/
 
 /*1: use custom malloc/free, 0: use the built-in `lv_mem_alloc()` and `lv_mem_free()`*/
-#define LV_MEM_CUSTOM      0
+#define LV_MEM_CUSTOM      1
 #if LV_MEM_CUSTOM == 0
 /*Size of the memory available for `lv_mem_alloc()` in bytes (>= 2kB)*/
 #  define LV_MEM_SIZE    (128U * 1024U)          /*[bytes]*/
@@ -106,7 +106,7 @@ uint32_t custom_tick_get(void);
  *With complex image decoders (e.g. PNG or JPG) caching can save the continuous open/decode of images.
  *However the opened images might consume additional RAM.
  *0: to disable caching*/
-#define LV_IMG_CACHE_DEF_SIZE       0
+#define LV_IMG_CACHE_DEF_SIZE       10
 
 /*Maximum buffer size to allocate for rotation. Only used if software rotation is enabled in the display driver.*/
 #define LV_DISP_ROT_MAX_BUF         (10*1024)
@@ -508,6 +508,14 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 
 /*Enable the examples to be built with the library*/
 #define LV_BUILD_EXAMPLES   1
+
+/*FS*/
+#define LV_USE_FS_IF	1
+#if LV_USE_FS_IF
+#  define LV_FS_IF_FATFS    '\0'
+#  define LV_FS_IF_PC       'S'
+#  define LV_FS_IF_POSIX    '\0'
+#endif  /*LV_USE_FS_IF*/
 
 /*--END OF LV_CONF_H--*/
 

@@ -26,6 +26,16 @@ macro(exists_file_lvgl)
         message("lv_lib_gif")
     endif()
 
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_lib_split_jpg/tjpgdcnf.h)
+        set(_result FALSE)
+        message("lv_lib_split_jpg")
+    endif()
+
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_fs_if/lv_fs_if.h)
+        set(_result FALSE)
+        message("lv_fs_if")
+    endif()
+
 endmacro(exists_file_lvgl)
 
 
@@ -54,7 +64,9 @@ if(${_result})
     add_static_lib(f_lv_demos lv_demos f_lvgl )
     add_static_lib(f_lv_lib_png lv_lib_png )
     add_static_lib(f_lv_lib_gif lv_lib_gif f_lvgl )
-
+    add_static_lib(f_lv_lib_split_jpg lv_lib_split_jpg )
+    add_static_lib(f_lv_fs_if lv_fs_if )
+    
     add_subdirectory(f_apps) 
     
 else() 

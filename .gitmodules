@@ -16,3 +16,9 @@
 [submodule "4.littlevgl/lv_lib_gif"]
 	path = 4.littlevgl/lv_lib_gif
 	url = https://github.com.cnpmjs.org/lvgl/lv_lib_gif.git
+[submodule "4.littlevgl/lv_lib_split_jpg"]
+	path = 4.littlevgl/lv_lib_split_jpg
+	url = https://github.com.cnpmjs.org/lvgl/lv_lib_split_jpg.git
+[submodule "4.littlevgl/lv_fs_if"]
+	path = 4.littlevgl/lv_fs_if
+	url = https://github.com.cnpmjs.org/lvgl/lv_fs_if.git
