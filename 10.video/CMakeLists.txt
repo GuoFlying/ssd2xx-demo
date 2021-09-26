@@ -9,7 +9,7 @@ if(CHIP STREQUAL "ssd20x")
 elseif(CHIP STREQUAL "ssd2x2")
 
     add_subdirectory(ssd2x2_yuv_play_test1)
-    add_subdirectory(ssd2x2_yuv_play_test2)
+    #add_subdirectory(ssd2x2_yuv_play_test2)
 
 else()
     
