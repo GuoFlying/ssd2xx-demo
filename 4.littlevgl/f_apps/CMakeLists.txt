@@ -5,6 +5,7 @@ add_subdirectory(lv_lib_gif_test_app)
 add_subdirectory(f_game_2048)
 add_subdirectory(lv_lib_split_jpg_test_app)
 add_subdirectory(lv_lib_freetype_test_app)
+add_subdirectory(f_game_snake)
 
 
 add_custom_target(
