@@ -46,6 +46,12 @@
 - LVGL默认只有英文字体，若要用中文就会用到freetype
 - ./lv_lib_freetype_test_app 1024 600 ./res/GBK_Mobil.TTF
 
+##### 8、 lv_lib_bmp_test_app
+- bmp 解码测试demo
+- ./lv_lib_bmp_test_app 1024 600 ./res/example_16bit.bmp
+- 需要自己看下panel 是几位色，对应选择bmp
+
+
 ##### 8、 f_game_snake
 - 简易贪吃蛇小游戏
 - ./f_game_snake 1024 600

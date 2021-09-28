@@ -37,9 +37,15 @@ macro(exists_file_lvgl)
     endif()
 
     if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_lib_freetype/lv_freetype.h)
-    set(_result FALSE)
-    message("lv_lib_freetype")
+        set(_result FALSE)
+        message("lv_lib_freetype")
     endif()
+
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lv_lib_bmp/lv_bmp.h)
+        set(_result FALSE)
+        message("lv_lib_bmp")
+    endif()
+
 endmacro(exists_file_lvgl)
 
 
@@ -84,6 +90,7 @@ if(${_result})
     endif()
 
     add_static_lib(f_lv_lib_freetype lv_lib_freetype "-lfreetype")
+    add_static_lib(f_lv_lib_bmp lv_lib_bmp )
 
     add_subdirectory(f_apps) 
     
