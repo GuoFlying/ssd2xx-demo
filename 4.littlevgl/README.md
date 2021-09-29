@@ -38,7 +38,7 @@
 - 2048 小游戏
 - ./f_game_2048 1024 600 
 
-##### lv_lib_split_jpg_test_app
+##### 6、 lv_lib_split_jpg_test_app
 - 解码3张jpg图片并切换显示，默认调用./res/1.jpg 2.jpg 3.jpg
 - ./lv_lib_split_jpg_test_app 1024 600 
 
@@ -51,7 +51,12 @@
 - ./lv_lib_bmp_test_app 1024 600 ./res/example_16bit.bmp
 - 需要自己看下panel 是几位色，对应选择bmp
 
-
-##### 8、 f_game_snake
+##### 9、 f_game_snake
 - 简易贪吃蛇小游戏
 - ./f_game_snake 1024 600
+
+##### 10、 f_tool_file_browser
+- 简易文件浏览器
+- 可进入文件夹上下级
+- 并可查看png、jpg、gif、bmp、ttf文件
+- ./f_tool_file_browser 1024 600

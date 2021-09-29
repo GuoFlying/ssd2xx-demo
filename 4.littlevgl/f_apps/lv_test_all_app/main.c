@@ -51,12 +51,11 @@ struct _examples_func_t
     DEF_EXAMPLE_FUNC(lv_example_btnmatrix_1),
     DEF_EXAMPLE_FUNC(lv_example_label_1),
     DEF_EXAMPLE_FUNC(lv_example_label_2),
-    DEF_EXAMPLE_FUNC(lv_example_label_2),
-    //DEF_EXAMPLE_FUNC(lv_example_label_3),//39
+    DEF_EXAMPLE_FUNC(lv_example_led_1),//39
 
-    DEF_EXAMPLE_FUNC(lv_example_led_1),
     DEF_EXAMPLE_FUNC(lv_example_line_1),
     DEF_EXAMPLE_FUNC(lv_example_list_1),
+    DEF_EXAMPLE_FUNC(lv_example_list_2),
     DEF_EXAMPLE_FUNC(lv_example_meter_1),
     DEF_EXAMPLE_FUNC(lv_example_meter_2),
     DEF_EXAMPLE_FUNC(lv_example_meter_3),
