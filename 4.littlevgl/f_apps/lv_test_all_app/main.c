@@ -1,5 +1,5 @@
 #include "../base_main.fc"
-#include "lvgl/examples/lv_examples.h"
+#include "../../lvgl/examples/lv_examples.h"
 
 #define DEF_EXAMPLE_FUNC(a) a, #a
 

@@ -8,6 +8,7 @@ add_subdirectory(lv_lib_freetype_test_app)
 add_subdirectory(f_game_snake)
 add_subdirectory(lv_lib_bmp_test_app)
 add_subdirectory(f_tool_file_browser)
+add_subdirectory(f_game_tetris)
 
 
 add_custom_target(
