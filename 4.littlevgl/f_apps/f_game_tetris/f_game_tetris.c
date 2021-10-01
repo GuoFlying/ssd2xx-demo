@@ -54,19 +54,15 @@ typedef struct _lv_f_tetris_game
     lv_obj_t *label_best_lines; /* 消除行数 */
     lv_obj_t *label_best_level; /* 等级 */
 
-    // lv_obj_t *label_current_score; /* 展示当前分数 */
-    // lv_obj_t *task_handle;         /* 任务句柄 */
+    lv_obj_t *canvas_preview;     /* 下一个方块预览 */
 
-    // uint8_t game_board[SIZE][SIZE]; /* 2048矩阵 */
-    // uint32_t current_score_value;   /* 当前分数 */
-    bool play_game; /* 游戏状态 */
 } T_lv_f_tetris_game, *PT_lv_f_tetris_game;
 static PT_lv_f_tetris_game g_pt_lv_f_tetis_game;
 
 static void f_game_tetris_ctrl_event_cb(lv_event_t *e);
 static void f_game_tetris_draw_box_to_map(uint8_t x, uint8_t y, uint8_t color);
 static uint8_t f_game_tetris_get_random(void);
-static void f_game_tetris_next_brick_info(const void *info);
+static void f_game_tetris_next_brick_info(uint8_t x, uint8_t y, uint8_t color);
 static void f_game_tetris_remove_line_num(uint8_t line);
 static void f_game_tetris_canvas_stage_init();
 static void lv_task_f_game_tetris(struct _lv_timer_t * timer);
@@ -99,6 +95,13 @@ void f_game_tetris()
     lv_canvas_set_buffer(g_pt_lv_f_tetis_game->canvas_stage, cbuf, F_TETRIS_STAGE_W, F_TETRIS_STAGE_H, LV_IMG_CF_TRUE_COLOR);
     lv_obj_align_to(g_pt_lv_f_tetis_game->canvas_stage, label, LV_ALIGN_OUT_BOTTOM_MID, 0, 20);
     f_game_tetris_canvas_stage_init();
+   
+    /*下一个方块预览*/
+    g_pt_lv_f_tetis_game->canvas_preview = lv_canvas_create(g_pt_lv_f_tetis_game->bg);
+    cbuf = (lv_color_t *)malloc(sizeof(lv_color_t) * LV_CANVAS_BUF_SIZE_TRUE_COLOR(F_TETRIS_PREVIEW_NEX_W, F_TETRIS_PREVIEW_NEX_H));
+    lv_canvas_set_buffer(g_pt_lv_f_tetis_game->canvas_preview, cbuf, F_TETRIS_PREVIEW_NEX_W, F_TETRIS_PREVIEW_NEX_H, LV_IMG_CF_TRUE_COLOR);
+    lv_canvas_fill_bg(g_pt_lv_f_tetis_game->canvas_preview, lv_color_white(),LV_OPA_COVER);
+    lv_obj_align_to(g_pt_lv_f_tetis_game->canvas_preview, g_pt_lv_f_tetis_game->canvas_stage, LV_ALIGN_OUT_LEFT_TOP, -30, 0);
 
     /*分数*/
     g_pt_lv_f_tetis_game->label_best_score = lv_label_create(g_pt_lv_f_tetis_game->bg);
@@ -128,16 +131,13 @@ void f_game_tetris()
     lv_obj_t *btnm = lv_btnmatrix_create(g_pt_lv_f_tetis_game->bg);
     lv_btnmatrix_set_map(btnm, btnm_map);
     lv_obj_set_size(btnm, F_TETRIS_BTN_W, F_TETRIS_BTN_H);
-
+    lv_obj_set_style_border_opa(btnm,LV_OPA_0,0);
     lv_obj_add_event_cb(btnm, f_game_tetris_ctrl_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
     lv_obj_align_to(btnm, g_pt_lv_f_tetis_game->canvas_stage, LV_ALIGN_OUT_RIGHT_BOTTOM, 10, 0);
 
     static lv_style_t style_btn;
     lv_style_init(&style_btn);
-    lv_style_set_border_width(&style_btn, 1);
-    lv_style_set_border_opa(&style_btn, LV_OPA_50);
-    lv_style_set_border_color(&style_btn, lv_palette_main(LV_PALETTE_GREY));
-    lv_style_set_border_side(&style_btn, LV_BORDER_SIDE_INTERNAL);
+    lv_style_set_bg_color(&style_btn, lv_palette_main(LV_PALETTE_AMBER));
     lv_style_set_radius(&style_btn, 30);
     lv_obj_add_style(btnm, &style_btn, LV_PART_ITEMS);
 
@@ -181,9 +181,33 @@ static uint8_t f_game_tetris_get_random(void)
     return rand() % tmp;
 }
 
-static void f_game_tetris_next_brick_info(const void *info)
+static void f_game_tetris_next_brick_info(uint8_t x, uint8_t y, uint8_t color)
 {
-    LV_LOG_USER("%d %02x\n", (uint16_t)(int)info, info);
+#define RECT_SIZE 2
+    printf("%d %d %d\r\n", x, y, color);
+    static int is = 0;
+    static lv_draw_rect_dsc_t rect_dsc[RECT_SIZE];
+    if (is == 0)
+    {
+        is = 1;
+        for (int i = 0; i < RECT_SIZE; i++)
+        {
+            lv_draw_rect_dsc_init(&rect_dsc[i]);
+            rect_dsc[i].bg_opa = LV_OPA_COVER;
+            rect_dsc[i].border_width = F_TETRIS_STAGE_LINE;
+            rect_dsc[i].border_opa = LV_OPA_100;
+            rect_dsc[i].border_color = lv_palette_main(LV_PALETTE_RED);
+        }
+        rect_dsc[0].border_opa = LV_OPA_0;
+        rect_dsc[0].bg_color = lv_color_white(); //没方格
+        rect_dsc[1].bg_color = lv_color_hex(0xd67421);
+    }
+    lv_canvas_draw_rect(g_pt_lv_f_tetis_game->canvas_preview,
+                        F_TETRIS_PREVIEW_BOX_START_W(x), F_TETRIS_PREVIEW_BOX_START_H(y),
+                        F_TETRIS_PREVIEW_BOX_W, F_TETRIS_PREVIEW_BOX_H, &rect_dsc[color >= RECT_SIZE ? RECT_SIZE - 1 : color]);
+
+#undef RECT_SIZE
+
 }
 
 //放下一个方块就会回调一次

@@ -30,7 +30,8 @@ static void (*draw_box)(uint8_t x, uint8_t y, uint8_t color) = NULL;
 // 回调函数指针, 获取一个随机数
 static uint8_t (*get_random_num)(void) = NULL;
 // 回调函数指针, 返回下一个brick的信息
-static void (*return_next_brick_info)(const void *info) = NULL;
+static void return_next_brick_info(uint16_t info);
+static void (*return_next_brick_info_map)(uint8_t x, uint8_t y, uint8_t color) = NULL;
 // 回调函数指针, 当有消行时调用
 static void (*return_remove_line_num)(uint8_t line) = NULL;
 
@@ -292,14 +293,14 @@ static bool is_conflict(const brick_t dest)
  */
 void tetris_init(void (*draw_box_to_map)(uint8_t x, uint8_t y, uint8_t color),
                  uint8_t (*get_random)(void),
-                 void (*next_brick_info)(const void *info),
+                 void (*next_brick_info_map)(uint8_t x, uint8_t y, uint8_t color),
                  void (*remove_line_num)(uint8_t line))
 {
     uint8_t i;
 
     draw_box = draw_box_to_map;
     get_random_num = get_random;
-    return_next_brick_info = next_brick_info;
+    return_next_brick_info_map = next_brick_info_map;
     return_remove_line_num = remove_line_num;
     is_game_over = false;
 
@@ -311,8 +312,7 @@ void tetris_init(void (*draw_box_to_map)(uint8_t x, uint8_t y, uint8_t color),
     next_brick = create_new_brick();
 
     // 返回预览方块信息
-    if (return_next_brick_info != NULL)
-        return_next_brick_info(&preview_brick_table[next_brick.index >> 4]);
+    return_next_brick_info(brick_table[next_brick.index >> 4][0]);
 
     draw_brick(curr_brick);
     tetris_sync_all();
@@ -428,8 +428,7 @@ bool tetris_move(TETRIS_DIRE_E direction)
             curr_brick = next_brick;
             next_brick = create_new_brick();
             // 预览方块信息
-            if (return_next_brick_info != NULL)
-                return_next_brick_info(&preview_brick_table[next_brick.index >> 4]);
+                return_next_brick_info(brick_table[next_brick.index >> 4][0]);
         }
         is_move = false;
     }
@@ -439,7 +438,23 @@ bool tetris_move(TETRIS_DIRE_E direction)
     return is_move;
 }
 
+static void return_next_brick_info(uint16_t info)
+{
+    if(!return_next_brick_info_map){
+        return ;
+    }
+    uint8_t x, y;
+    uint8_t color = 0;
+    for (y = 0; y < BRICK_HEIGHT; y++)
+    {
+        for (x = 0; x < BRICK_WIDTH; x++)
+        {
+            color = (uint8_t)GET_BIT(info, x+y*BRICK_WIDTH);
+            return_next_brick_info_map(x, y, color);
+        }
+    }
+}
 
-/************* Copyright(C) 2013 - 2014 DevLabs **********END OF FILE**********/
+
 
 

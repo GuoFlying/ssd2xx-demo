@@ -3,27 +3,14 @@
 
 #include "../../lvgl/lvgl.h"
 #include "tetris_logic/tetris_logic.h"
-/* 从大算到小会有四舍五入会有精度问题*/
-
-
-// /*算出第几个方块的起始坐标
-// eg:2X2 :  (x,y)
-// (0,0),(0,1)
-// (1,0),(1,1)
-// */
-// #define F_TETRIS_BOX_START_W(x) (x*(F_TETRIS_STAGE_BOX_W+F_TETRIS_STAGE_LINE)+F_TETRIS_STAGE_BORDER)
-// #define F_TETRIS_BOX_START_H(y) (y*(F_TETRIS_STAGE_BOX_H+F_TETRIS_STAGE_LINE)+F_TETRIS_STAGE_BORDER)
-
-// /*按键控制总宽高*/
-// #define F_TETRIS_BTN_H (F_TETRIS_STAGE_H/2)
-// #define F_TETRIS_BTN_W (F_TETRIS_STAGE_W-40)
 
 
 #define F_TETRIS_STAGE_LINE         2/*小方块线长*/
 #define F_TETRIS_STAGE_BORDER       10/*边框*/
 #define F_TETRIS_STAGE_MAP_W        MAP_WIDTH /*方块地图宽大小*/
 #define F_TETRIS_STAGE_MAP_H        MAP_HEIGHT /*方块地图高大小*/
-/*过度值*/
+
+/*过度值*//* 从大算到小会有四舍五入会有精度问题*/
 #define TMP_F_TETRIS_STAGE_W (LV_HOR_RES/3)
 #define TMP_F_TETRIS_STAGE_H (LV_VER_RES-LV_VER_RES/5)
 #define TMP_F_TETRIS_REAL_STAGE_W (TMP_F_TETRIS_STAGE_W-(F_TETRIS_STAGE_BORDER+1)*2)
@@ -54,6 +41,15 @@ eg:2X2 :  (x,y)
 #define F_ETRIS_BASE_MIN_SPEED 500
 #define F_ETRIS_BASE_STEP_SPEED 50
 #define F_ETRIS_BASE_MAX_SPEED 50
+
+/*预览下一个方块*/
+#define F_TETRIS_PREVIEW_BOX_W F_TETRIS_STAGE_BOX_W
+#define F_TETRIS_PREVIEW_BOX_H F_TETRIS_PREVIEW_BOX_W
+#define F_TETRIS_PREVIEW_NEX_H ((F_TETRIS_PREVIEW_BOX_H+F_TETRIS_STAGE_LINE)*4)
+#define F_TETRIS_PREVIEW_NEX_W ((F_TETRIS_PREVIEW_BOX_W+F_TETRIS_STAGE_LINE)*4)
+#define F_TETRIS_PREVIEW_BOX_START_W(x) (x*F_TETRIS_PREVIEW_BOX_W+(x+1)*(F_TETRIS_STAGE_LINE))
+#define F_TETRIS_PREVIEW_BOX_START_H(y) (y*F_TETRIS_PREVIEW_BOX_H+(y+1)*(F_TETRIS_STAGE_LINE))
+
 void f_game_tetris();
 
 #endif

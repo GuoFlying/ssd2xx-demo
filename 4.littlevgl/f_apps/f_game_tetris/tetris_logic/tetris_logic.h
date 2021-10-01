@@ -36,15 +36,14 @@ extern bool tetris_is_game_over(void);
 // get_random(void)
 
 // 当产生新方块后回调此函数, 参数为新方块的数据
-// 当前版本 *info 为uint16_t型数据, 代表新方块的点阵数据
-// next_brick_info(const void *info)
+// next_brick_info_map(uint8_t x, uint8_t y, uint8_t color)
 
 // 当发生消行时回调此函数, 参数为消除的行数
 // remove_line_num(uint8_t line)
 extern void tetris_init(
     void (*draw_box_to_map)(uint8_t x, uint8_t y, uint8_t color),
     uint8_t (*get_random)(void),
-    void (*next_brick_info)(const void *info),
+    void (*next_brick_info_map)(uint8_t x, uint8_t y, uint8_t color),
     void (*remove_line_num)(uint8_t line)
     );
 #endif
