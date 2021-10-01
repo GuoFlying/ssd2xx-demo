@@ -3,26 +3,25 @@
 
 typedef struct
 {
-    int8_t x;               //!< brick在地图中的x坐标
-    int8_t y;               //!< brick在地图中的y坐标
-    int8_t index;           //!< 方块索引, 高4位记录类型, 低4位记录变形
-    uint16_t brick;         //!< 方块数据
+    int8_t x;       //!< brick在地图中的x坐标
+    int8_t y;       //!< brick在地图中的y坐标
+    int8_t index;   //!< 方块索引, 高4位记录类型, 低4位记录变形
+    uint16_t brick; //!< 方块数据
 } brick_t;
 
-#define BRICK_TYPE                  7   // 一共7种类型的方块
-#define BRICK_NUM_OF_TYPE           4   // 每一种类型有4种变形
+#define BRICK_NUM_OF_TYPE 4 // 每一种类型有4种变形
 
-#define BRICK_START_X               ((MAP_WIDTH / 2) - (BRICK_WIDTH / 2))
+#define BRICK_START_X ((MAP_WIDTH / 2) - (BRICK_WIDTH / 2))
 
 #ifndef NULL
-    #define NULL    ((void *)0)
+#define NULL ((void *)0)
 #endif
 
 /* Private macro -------------------------------------------------------------*/
 // 对地图数组进行位操作的支持宏
-#define     SET_BIT(dat, bit)      ((dat) |= (0x0001 << (bit)))
-#define     CLR_BIT(dat, bit)      ((dat) &= ~(0x0001 << (bit)))
-#define     GET_BIT(dat, bit)      (((dat) & (0x0001 << (bit))) >> (bit))
+#define SET_BIT(dat, bit) ((dat) |= (0x0001 << (bit)))
+#define CLR_BIT(dat, bit) ((dat) &= ~(0x0001 << (bit)))
+#define GET_BIT(dat, bit) (((dat) & (0x0001 << (bit))) >> (bit))
 
 /* Private variables ---------------------------------------------------------*/
 // 回调函数指针, 用来在坐标(x, y)画一个brick
@@ -30,59 +29,42 @@ static void (*draw_box)(uint8_t x, uint8_t y, uint8_t color) = NULL;
 // 回调函数指针, 获取一个随机数
 static uint8_t (*get_random_num)(void) = NULL;
 // 回调函数指针, 返回下一个brick的信息
-static void return_next_brick_info(uint16_t info);
+static void return_next_brick_info(int index);
 static void (*return_next_brick_info_map)(uint8_t x, uint8_t y, uint8_t color) = NULL;
 // 回调函数指针, 当有消行时调用
 static void (*return_remove_line_num)(uint8_t line) = NULL;
 
 static bool is_game_over = false;
 
-
-// 为了preview brick显示美观, 将方块在4 * 4 的点阵中居中
-// 实际上这个是可以直接使用方块数据表的, 但要略做更改, 懒得再算表了
-static const uint16_t preview_brick_table[BRICK_TYPE] =
-{
-    0x0360,     // S
-    0x0C60,     // Z
-    0x0446,     // L
-    0x0226,     // J
-    0x2222,     // I
-    0x0660,     // O
-    0x0E40,     // T
-};
-
-
 // 方块数据表
 static const uint16_t brick_table[BRICK_TYPE][BRICK_NUM_OF_TYPE] =
-{
-    { 0x6C00, 0x4620, 0x06C0, 0x8C40 },     // S
-    { 0xC600, 0x2640, 0x0C60, 0x4C80 },     // Z
-    { 0x88C0, 0xE800, 0x6220, 0x02E0 },     // L
-    { 0x2260, 0x08E0, 0xC880, 0xE200 },     // J
-    { 0x4444, 0x0F00, 0x2222, 0x00F0 },     // I
-    { 0xCC00, 0xCC00, 0xCC00, 0xCC00 },     // O
-    { 0xE400, 0x2620, 0x04E0, 0x8C80 }      // T
+    {
+        {0x6C00, 0x4620, 0x06C0, 0x8C40}, // S
+        {0xC600, 0x2640, 0x0C60, 0x4C80}, // Z
+        {0x88C0, 0xE800, 0x6220, 0x02E0}, // L
+        {0x2260, 0x08E0, 0xC880, 0xE200}, // J
+        {0x4444, 0x0F00, 0x2222, 0x00F0}, // I
+        {0xCC00, 0xCC00, 0xCC00, 0xCC00}, // O
+        {0xE400, 0x2620, 0x04E0, 0x8C80}  // T
 };
-
 
 // 旋转掩码表
 static const uint16_t rotate_mask[BRICK_TYPE][BRICK_NUM_OF_TYPE] =
-{
-    { 0xEE20, 0x66E0, 0x8EE0, 0xECC0 },     // S
-    { 0xE660, 0x2EE0, 0xEE80, 0xCCE0 },     // Z
-    { 0xECC0, 0xEE20, 0x66E0, 0x8EE0 },     // L
-    { 0x2EE0, 0xCCE0, 0xEE80, 0xE660 },     // J
-    { 0x7FCC, 0xEF33, 0x33FE, 0xCCF0 },     // I
-    { 0xCC00, 0xCC00, 0xCC00, 0xCC00 },     // O
-    { 0xE620, 0x26E0, 0x8CE0, 0xEC80 }      // T
+    {
+        {0xEE20, 0x66E0, 0x8EE0, 0xECC0}, // S
+        {0xE660, 0x2EE0, 0xEE80, 0xCCE0}, // Z
+        {0xECC0, 0xEE20, 0x66E0, 0x8EE0}, // L
+        {0x2EE0, 0xCCE0, 0xEE80, 0xE660}, // J
+        {0x7FCC, 0xEF33, 0x33FE, 0xCCF0}, // I
+        {0xCC00, 0xCC00, 0xCC00, 0xCC00}, // O
+        {0xE620, 0x26E0, 0x8CE0, 0xEC80}  // T
 };
 
 // 下一个方块的y坐标初始值
 static const int8_t brick_start_y[BRICK_TYPE] =
-{
-//   S   Z   L   J   I   O   T
-    -2, -2, -3, -3, -4, -2, -2
-};
+    {
+        //   S   Z   L   J   I   O   T
+        -2, -2, -3, -3, -4, -2, -2};
 
 // 地图数组
 // map[0]是地图的最上方
@@ -90,8 +72,8 @@ static int16_t map[MAP_HEIGHT];
 // 地图备份, 保存上一次的数据, 解决屏幕闪烁问题
 static int16_t map_backup[MAP_HEIGHT];
 
-static brick_t curr_brick;              // 当前方块
-static brick_t next_brick;              // 下一个方块
+static brick_t curr_brick; // 当前方块
+static brick_t next_brick; // 下一个方块
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -116,7 +98,6 @@ static brick_t create_new_brick(void)
 
     return brick;
 }
-
 
 /**
  * \brief  将地图数组中的内容同步到屏幕, 只同步改变的部分
@@ -146,8 +127,6 @@ void tetris_sync(void)
     return;
 }
 
-
-
 /**
  * \brief  同步所有
  */
@@ -165,8 +144,6 @@ void tetris_sync_all(void)
 
     return;
 }
-
-
 
 /**
  * \brief  game over?
@@ -206,9 +183,6 @@ static void draw_brick(const brick_t brick)
     return;
 }
 
-
-
-
 /**
  * \brief  在方块数组中清除指定方块
  *
@@ -235,7 +209,6 @@ static void clear_brick(const brick_t brick)
     return;
 }
 
-
 /**
  * \brief  冲突检测, 检测之前要将当前方块从地图数组中清掉.
  *
@@ -261,17 +234,17 @@ static bool is_conflict(const brick_t dest)
                 // 只需要检查左右边界就可以了, 下边界也没必要检查, 因为肯定不会越界
                 if ((dest.y + box_y) < 0)
                 {
-                    exp = (((box_x + dest.x) > (MAP_WIDTH - 1))        // 右边界
-                        || ((box_x + dest.x) < 0));                           // 左边界
-                        // || ((box_y + dest.y) > (MAP_HEIGHT - 1)));  // 下边界
+                    exp = (((box_x + dest.x) > (MAP_WIDTH - 1)) // 右边界
+                           || ((box_x + dest.x) < 0));          // 左边界
+                                                                // || ((box_y + dest.y) > (MAP_HEIGHT - 1)));  // 下边界
                 }
                 else
                 {
                     // 此时box在地图内, 检查下边界, 还要检测box在地图内是否有冲突
-                    exp = (((box_x + dest.x) > (MAP_WIDTH - 1))        // 右边界
-                        || ((box_x + dest.x) < 0)                             // 左边界
-                        || ((box_y + dest.y) > (MAP_HEIGHT - 1))    // 下边界
-                        || (GET_BIT(map[box_y + dest.y], (box_x + dest.x))));// 地图内
+                    exp = (((box_x + dest.x) > (MAP_WIDTH - 1))                  // 右边界
+                           || ((box_x + dest.x) < 0)                             // 左边界
+                           || ((box_y + dest.y) > (MAP_HEIGHT - 1))              // 下边界
+                           || (GET_BIT(map[box_y + dest.y], (box_x + dest.x)))); // 地图内
                 }
                 if (exp)
                     return true;
@@ -281,7 +254,6 @@ static bool is_conflict(const brick_t dest)
 
     return false;
 }
-
 
 /**
  * \brief
@@ -312,7 +284,7 @@ void tetris_init(void (*draw_box_to_map)(uint8_t x, uint8_t y, uint8_t color),
     next_brick = create_new_brick();
 
     // 返回预览方块信息
-    return_next_brick_info(brick_table[next_brick.index >> 4][0]);
+    return_next_brick_info(next_brick.index >> 4);
 
     draw_brick(curr_brick);
     tetris_sync_all();
@@ -355,8 +327,6 @@ static void line_clear_check(void)
     return;
 }
 
-
-
 /**
  * \brief  移动方块
  *
@@ -372,76 +342,85 @@ bool tetris_move(TETRIS_DIRE_E direction)
 
     switch ((uint8_t)direction)
     {
-        case TETRIS_DIRE_LEFT:
-            dest_brick.x--;
-            break;
-        case TETRIS_DIRE_RIGHT:
-            dest_brick.x++;
-            break;
-        case TETRIS_DIRE_DOWN:
+    case TETRIS_DIRE_LEFT:
+        dest_brick.x--;
+        break;
+    case TETRIS_DIRE_RIGHT:
+        dest_brick.x++;
+        break;
+    case TETRIS_DIRE_DOWN:
+        dest_brick.y++;
+        break;
+    case TETRIS_DIRE_ROTATE:
+    {
+        // 低8位记录变形
+        uint8_t i = dest_brick.index & 0x0F;
+        i++;
+        dest_brick.index = (dest_brick.index & 0xF0) | (i % 4);
+        dest_brick.brick = rotate_mask[dest_brick.index >> 4][dest_brick.index & 0x0F];
+
+        break;
+    }
+    default:
+        break;
+    }
+
+    do
+    {
+        if (direction == TETRIS_DIRE_PROM_DOWN)
+        {
             dest_brick.y++;
-            break;
-        case TETRIS_DIRE_ROTATE:
-        {
-            // 低8位记录变形
-            uint8_t i = dest_brick.index & 0x0F;
-            i++;
-            dest_brick.index = (dest_brick.index & 0xF0) | (i % 4);
-            dest_brick.brick = rotate_mask[dest_brick.index >> 4][dest_brick.index & 0x0F];
-
-            break;
         }
-        default:
-            break;
-    }
+        // 在检测之前先将当前方块从地图中清掉
+        clear_brick(curr_brick);
 
-    // 在检测之前先将当前方块从地图中清掉
-    clear_brick(curr_brick);
-
-    // 无冲突, 更改之
-    if (!is_conflict(dest_brick))
-    {
-        // 旋转, 要方块信息从旋转mask改回来
-        if (direction == TETRIS_DIRE_ROTATE)
+        // 无冲突, 更改之
+        if (!is_conflict(dest_brick))
         {
-            dest_brick.brick = brick_table[dest_brick.index >> 4][dest_brick.index & 0x0F];
-        }
-        curr_brick = dest_brick;
-        is_move = true;
-    }
-    else
-    {
-        // 不可移动, 且向下不可移动
-        if (direction == TETRIS_DIRE_DOWN)
-        {
-            // 先将当前方块画到地图中
-            draw_brick(curr_brick);
-            // 如果下落完成时当前方块还有部分在地图外
-            // 或者下一个方块无法再放进地图, 游戏结束
-            if (curr_brick.y + 1 <= 0)
+            // 旋转, 要方块信息从旋转mask改回来
+            if (direction == TETRIS_DIRE_ROTATE)
             {
-                is_game_over = true;
+                dest_brick.brick = brick_table[dest_brick.index >> 4][dest_brick.index & 0x0F];
             }
-            // 消行
-            line_clear_check();
-            // 产生新方块
-            curr_brick = next_brick;
-            next_brick = create_new_brick();
-            // 预览方块信息
-                return_next_brick_info(brick_table[next_brick.index >> 4][0]);
+            curr_brick = dest_brick;
+            is_move = true;
         }
-        is_move = false;
-    }
+        else
+        {
+            is_move = false;
+            // 不可移动, 且向下不可移动
+            if (direction == TETRIS_DIRE_DOWN || direction == TETRIS_DIRE_PROM_DOWN)
+            {
+                // 先将当前方块画到地图中
+                draw_brick(curr_brick);
+                // 如果下落完成时当前方块还有部分在地图外
+                // 或者下一个方块无法再放进地图, 游戏结束
+                if (curr_brick.y + 1 <= 0)
+                {
+                    is_game_over = true;
+                }
+                // 消行
+                line_clear_check();
+                // 产生新方块
+                curr_brick = next_brick;
+                next_brick = create_new_brick();
+                // 预览方块信息
+                return_next_brick_info(next_brick.index >> 4);
+                break;
+            }
+        }
+    } while (direction == TETRIS_DIRE_PROM_DOWN);
 
     draw_brick(curr_brick);
 
     return is_move;
 }
 
-static void return_next_brick_info(uint16_t info)
+static void return_next_brick_info(int index)
 {
-    if(!return_next_brick_info_map){
-        return ;
+    if (!return_next_brick_info_map)
+    {
+        return;
     }
     uint8_t x, y;
     uint8_t color = 0;
@@ -449,12 +428,9 @@ static void return_next_brick_info(uint16_t info)
     {
         for (x = 0; x < BRICK_WIDTH; x++)
         {
-            color = (uint8_t)GET_BIT(info, x+y*BRICK_WIDTH);
+            color = (uint8_t)GET_BIT(brick_table[index][0], x + y * BRICK_WIDTH);
+            color = color == 0 ? 0 : index + 1;
             return_next_brick_info_map(x, y, color);
         }
     }
 }
-
-
-
-

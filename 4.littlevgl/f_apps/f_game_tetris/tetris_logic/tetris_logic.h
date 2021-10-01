@@ -7,18 +7,20 @@
 
 typedef enum
 {
-    TETRIS_DIRE_LEFT,      //!< 左移
-    TETRIS_DIRE_RIGHT,     //!< 右移
-    TETRIS_DIRE_DOWN,      //!< 下移
-    TETRIS_DIRE_ROTATE,    //!< 旋转
+    TETRIS_DIRE_LEFT,   //!< 左移
+    TETRIS_DIRE_RIGHT,  //!< 右移
+    TETRIS_DIRE_DOWN,   //!< 下移
+    TETRIS_DIRE_ROTATE, //!< 旋转
+    TETRIS_DIRE_PROM_DOWN, //立即到底部
 } TETRIS_DIRE_E;
 
+#define BRICK_TYPE 7 // 一共7种类型的方块
 
-#define BRICK_HEIGHT                4   // 一个brick由4*4的box组成
-#define BRICK_WIDTH                 4
+#define BRICK_HEIGHT 4 // 一个brick由4*4的box组成
+#define BRICK_WIDTH 4
 
-#define MAP_WIDTH                   10  // 地图宽
-#define MAP_HEIGHT                  20  // 地图高
+#define MAP_WIDTH 10  // 地图宽
+#define MAP_HEIGHT 20 // 地图高
 
 //移动
 extern bool tetris_move(TETRIS_DIRE_E direction);
@@ -44,10 +46,7 @@ extern void tetris_init(
     void (*draw_box_to_map)(uint8_t x, uint8_t y, uint8_t color),
     uint8_t (*get_random)(void),
     void (*next_brick_info_map)(uint8_t x, uint8_t y, uint8_t color),
-    void (*remove_line_num)(uint8_t line)
-    );
+    void (*remove_line_num)(uint8_t line));
 #endif
 
 /************* Copyright(C) 2013 - 2014 DevLabs **********END OF FILE**********/
-
-
