@@ -33,7 +33,7 @@ int setCapVal(int v)
     elem = snd_mixer_first_elem(handle);
     while (elem)
     {
-        char *tmp = snd_mixer_selem_get_name(elem);
+        const char *tmp = snd_mixer_selem_get_name(elem);
         printf("tmp elem name : %s\n", tmp);
         //比较element名字是否是我们想要设置的选项
         if (strcmp(sctrlstr, tmp) == 0)
