@@ -39,6 +39,7 @@ else()
     message("${Red} 请指定编译目标。eg：cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CHIP=ssd20x .. ${ColourReset}" )
     message("${Red} 编译详细过程可见 README.md ${ColourReset}" )
     message(FATAL_ERROR)
+    
 endif()
 
 add_subdirectory(0.common)
