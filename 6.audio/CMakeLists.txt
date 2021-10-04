@@ -12,6 +12,7 @@ elseif(CHIP STREQUAL "mp157")
 
     add_subdirectory(alsa_playback_1)
     add_subdirectory(alsa_playback_2)
+    add_subdirectory(mini_audio)
     
 else()
 

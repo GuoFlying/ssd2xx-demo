@@ -12,7 +12,7 @@
 
 ## mp3_player
 
-- 原厂简单MP3播放 https://gitee.com/mFlying/RunTimeDemo/tree/master/MultiPlayer/mp3player
+- 原厂简单MP3播放 <https://gitee.com/mFlying/RunTimeDemo/tree/master/MultiPlayer/mp3player>
 - 运行
 
 ```shell
