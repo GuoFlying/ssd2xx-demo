@@ -15,3 +15,6 @@ add_executable(${PROJECT_NAME} main.c ${SRC_FILES} ${HEAD_FILES})
 
 # target_link_libraries(${PROJECT_NAME} "-lasound -lpthread -ldl -lm")
 target_link_libraries(${PROJECT_NAME} "-lpthread -ldl -lm")
+
+
+add_subdirectory(examples)
