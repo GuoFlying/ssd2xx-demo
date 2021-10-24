@@ -1,12 +1,12 @@
 # SSD系列应用demo<a name="demoDoc"></a>
 
--   [一、概要](#demoDoc1)
--   [二、目录](#demoDoc2)
--   [三、使用说明](#demoDoc3)
--   [四、内部DEMO说明](#demoDoc4)
--   [五、SSD2XX的其他外部DEMO](#demoDoc5)
--   [六、其他文档说明](#demoDoc7)
--   [七、联系我们](#demoDoc6)
+- [一、概要](#demoDoc1)
+- [二、目录](#demoDoc2)
+- [三、使用说明](#demoDoc3)
+- [四、内部DEMO说明](#demoDoc4)
+- [五、SSD2XX的其他外部DEMO](#demoDoc5)
+- [六、其他文档说明](#demoDoc7)
+- [七、联系我们](#demoDoc6)
 
 ## 一、简介<a name="demoDoc1"></a>
 
@@ -15,7 +15,7 @@
 
 ## 二、目录<a name="demoDoc2"></a>
 
-```
+```shell
 /ssd2xx-demo
 ├── CMakeLists.txt         # cmake lists，工程配置，用于cmake编译
 ├── toolchain.cmake        # cmake交叉编译配置
@@ -47,6 +47,7 @@
 ## 三、使用说明<a name="demoDoc3"></a>
 
 - 内涵子仓库，克隆后若有需要需要更新子仓库
+
 ```shell
     git clone https://gitee.com/mFlying/ssd2xx-demo.git
     cd ssd2xx-demo
@@ -55,8 +56,10 @@
 ```
 
 #### 编译SSD20x的DEMO
--   交叉编译工具、cmake等工具安装。
--   编译过程如下：
+
+- 交叉编译工具、cmake等工具安装。
+- 编译过程如下：
+
 ```shell
     mkdir build
     cd build
@@ -65,7 +68,9 @@
 ```
 
 #### 编译SSD2x2的DEMO
--   若之前`cmake`过其他CHIP需要删除掉之前cmake出来的文件
+
+- 若之前`cmake`过其他CHIP需要删除掉之前cmake出来的文件
+
 ```shell
     cd build
     rm * -rf
@@ -76,41 +81,47 @@
     make help 
     make pwm_test1
 ```
+
 - **编译后生成的文件在/build/bin & /build/lib**
 
 ## 四、DEMO说明<a name="demoDoc4"></a>
 
--   [0.common 通用库、第三方开源库等 文档说明](./0.common/README.md)；
--   [1.watchdog 看门狗 文档说明](./1.watchdog/README.md)；
--   [2.panel 点屏相关 文档说明](./2.panel/README.md)；
--   [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/README.md)；
--   [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/README.md)；
--   [5.wifi  WIFI demo 文档说明](./5.wifi/README.md)；
--   [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/README.md)；
--   [7.gpio  GPIO DEMO 文档说明](./7.gpio/README.md)；
--   [8.pwm  pwm DEMO 文档说明](./8.pwm/README.md)；
--   [9.uart 串口 DEMO 文档说明](./9.uart/README.md)；
--   [10.video 视频相关 DEMO 文档说明](./10.video/README.md)；
--   [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/README.md)；
--   [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/README.md)；
--   [13.读取芯片唯一标识UUID并设置为eth0的MAC](./13.uuid/README.md)；
+- [0.common 通用库、第三方开源库等 文档说明](./0.common/README.md)；
+- [1.watchdog 看门狗 文档说明](./1.watchdog/README.md)；
+- [2.panel 点屏相关 文档说明](./2.panel/README.md)；
+- [3.framebuffer fb操作相关demo 文档说明](./3.framebuffer/README.md)；
+- [4.littlevgl LVGL GUI demo 文档说明](./4.littlevgl/README.md)；
+- [5.wifi  WIFI demo 文档说明](./5.wifi/README.md)；
+- [6.audio  AO/AI等接口DEMO 文档说明](./6.audio/README.md)；
+- [7.gpio  GPIO DEMO 文档说明](./7.gpio/README.md)；
+- [8.pwm  pwm DEMO 文档说明](./8.pwm/README.md)；
+- [9.uart 串口 DEMO 文档说明](./9.uart/README.md)；
+- [10.video 视频相关 DEMO 文档说明](./10.video/README.md)；
+- [11.mi_gfx GFX DEMO 文档说明](./11.mi_gfx/README.md)；
+- [12.mi_disp DISP DEMO 文档说明](./12.mi_disp/README.md)；
+- [13.读取芯片唯一标识UUID并设置为eth0的MAC](./13.uuid/README.md)；
 
 ## 五、其他文档说明<a name="demoDoc7"></a>
--   [SSD20x启动说明](./doc/ssd20x_start_process/README.md)
--   [uboot添加自己的cli命令](./doc/uboot_add_cmd/README.md)；
--   [ssd2x2修改kernel配置（make menuconfig）方法](./doc/ssd2x2_kernel_config_set/README.md)；
--   [应用内存检测工具valgrind概要](./doc/valgrind/README.md)；
--   [应用下载到公板方法列举](./doc/file_download/README.md)；
--   [SSD20x RTC配置说明](./doc/ssd202_other/rtc_config_readme.md)；
--   [网络测试工具iperf3 说明](./doc/iperf3/README.md)
--   [NAT/iptables概要说明，ap、eth桥接说明](./doc/NAT/README.md)
--   [SSD202x wifi测试命令wpa_cli使用](./doc/ssd202_other/wifi_test.md)
--   [SSD2X2,SDK编译支持SSW101B(USBwifi)说明](./doc/other/ssd21x_sup_ssw101.md)
--   [SSD20X 点屏限制，判断panel能不能点](./doc/ssd202_other/panel_clk.md)
+
+- [SSD20x启动说明](./doc/ssd20x_start_process/README.md)
+- [uboot添加自己的cli命令](./doc/uboot_add_cmd/README.md)；
+- [ssd2x2修改kernel配置（make menuconfig）方法](./doc/ssd2x2_kernel_config_set/README.md)；
+- [应用内存检测工具valgrind概要](./doc/valgrind/README.md)；
+- [应用下载到公板方法列举](./doc/file_download/README.md)；
+- [SSD20x RTC配置说明](./doc/ssd202_other/rtc_config_readme.md)；
+- [网络测试工具iperf3 说明](./doc/iperf3/README.md)
+- [NAT/iptables概要说明，ap、eth桥接说明](./doc/NAT/README.md)
+- [SSD202x wifi测试命令wpa_cli使用](./doc/ssd202_other/wifi_test.md)
+- [SSD2X2,SDK编译支持SSW101B(USBwifi)说明](./doc/other/ssd21x_sup_ssw101.md)
+- [SSD20X 点屏限制，判断panel能不能点](./doc/ssd202_other/panel_clk.md)
+- [公板触摸屏不准设置](./doc/other/tp_set.md)
 
 ## 六、SSD2XX的其他DEMO<a name="demoDoc5"></a>
+
 ### 一、SSD20x
+
 #### 1、V030版本的SDK中`sdk`文件夹中会带有一些DEMO。如下
+
 ```shell
 └── verify
     ├── application
@@ -169,9 +180,12 @@
             └── demo
 
 ```
+
 #### 2、单独在SDK外的DEMO可找FAE索取
-- 不随SDK发布更新 
+
+- 不随SDK发布更新
 - 如下只有在V08版本才有，有的demo在新版本已经不能正常编译，需要自己修改
+
 ```shell
 # Demo_Release.tar.gz
 ├─Airplay
@@ -221,7 +235,9 @@
 ```
 
 ### 二、SSD2x2
+
 #### 1、V014版本的SDK中`sdk`文件夹中会带有一些DEMO。如下
+
 ```shell
 # V014版本 sdk文件夹
 ├── driver
@@ -292,7 +308,9 @@
 ```
 
 #### 2、单独在SDK外的DEMO可找FAE索取
+
 - 不随SDK发布更新
+
 ```shell
 # IKAYAKI_ReleaseDemo_20210528_f8248bc.tar.gz
 ├─audio
@@ -326,9 +344,12 @@
 ```
 
 ### 三、其他
+
 #### 1、原厂给的其他DEMO
+
 - [github路径 https://github.com/aaron201912?tab=repositories](https://github.com/aaron201912?tab=repositories)
 - 内涵如工厂自带的中科flthings DEMO等，如下所示
+
 ```shell
 ├─ SSD26X_ZK
 ├─ ffmpeg               #ffmpeg 交叉编译，使用demo
@@ -348,5 +369,6 @@
 ```
 
 ## 七、联系我们<a name="demoDoc6"></a>
+
 - 有问题可直接提 `issues`
 - 邮件： `weekend@111.com`
