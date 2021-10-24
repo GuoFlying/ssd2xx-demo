@@ -10,7 +10,7 @@
   ```shell
     echo 1024x600.bin > /sys/bus/i2c/devices/0-005d/gtcfg
     echo 800x480.bin > /sys/bus/i2c/devices/0-005d/gtcfg
-#or
+    #or
     echo 1024x600.bin > /sys/bus/i2c/devices/1-005d/gtcfg
     echo 800x480.bin > /sys/bus/i2c/devices/1-005d/gtcfg
   ```
