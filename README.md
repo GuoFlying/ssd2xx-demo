@@ -116,8 +116,8 @@
 - [SSD20X 点屏限制，判断panel能不能点](./doc/ssd202_other/panel_clk.md)
 - [公板触摸屏不准设置](./doc/other/tp_set.md)
 - [SSD20X公板NOR 工程customer、config(分区)无法写入问题](./doc/other/sdk_nor_jffs2.md)
+- [SQLite 基本概念及使用概述](./doc/other/sqlite_introduce.md)
   
-
 ## 六、SSD2XX的其他DEMO<a name="demoDoc5"></a>
 
 ### 一、SSD20x
