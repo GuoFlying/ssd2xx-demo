@@ -1,3 +1,10 @@
+<!--
+ * @Author: Flying
+ * @Date: 2021-09-18 19:28:14
+ * @LastEditors: Flying
+ * @LastEditTime: 2021-12-21 07:24:27
+ * @Description: 新建文件
+-->
 # 概要
 
 ## ssd2x2
@@ -85,3 +92,9 @@
 - ALSA全称是Advanced Linux Sound Architecture，中文音译是Linux高级声音体系。ALSA 是Linux内核2.6后续版本中支持音频系统的标准接口程序，由ALSA库、内核驱动和相关测  试开发工具组成，更好的管理Linux中音频系统。
 - 动态链接库、头文件
 - [交叉编译说明](./alsa/README.md)
+
+## rlottie
+
+- rlottie是一个独立于平台的独立c ++库，用于实时渲染基于矢量的动画和艺术作品。Lottie加载和渲染以bodymovin JSON格式导出的动画和矢量。 Bodymovin JSON可以使用从After Effects中，使用通过从创建和导出。
+- 动态链接库、头文件
+- [交叉编译说明](./rlottie/README.md)

@@ -1,0 +1,6 @@
+Name: rlottie
+Description: A rlottie library
+Version: 0.2
+Requires:
+Libs: -L/home/flying/workspace/lib/rlottie/build/out/lib -lrlottie
+Cflags: -I/home/flying/workspace/lib/rlottie/build/out/include

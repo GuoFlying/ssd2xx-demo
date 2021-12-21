@@ -55,6 +55,21 @@
     git submodule update
 ```
 
+### 全编译脚本
+
+```shell
+    #ssd202D、ssd201平台
+    ./build_all.sh -j8 -ssd20x
+
+    #ssd212、ssd222、ssd222D平台
+    ./build_all.sh -j8 -ssd2x2
+    
+    #stm32mp157平台
+    ./build_all.sh -j8 -mp157
+```
+
+### 单独命令编译
+
 #### 编译SSD20x的DEMO
 
 - 交叉编译工具、cmake等工具安装。
