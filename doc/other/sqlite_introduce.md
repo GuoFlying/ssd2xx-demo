@@ -2,7 +2,7 @@
  * @Author: Flying
  * @Date: 2021-12-16 10:47:48
  * @LastEditors: Flying
- * @LastEditTime: 2021-12-16 15:49:43
+ * @LastEditTime: 2021-12-26 00:46:14
  * @Description: 新建文件
 -->
 
@@ -128,16 +128,319 @@
 
 ## 5、SQLite 优势
 
-## 6、SQLite 语法
+- 轻量：资源占用低（完全配置时小于400KiB，省略可选功能配置时小于250KiB）
+- 纯C编写，移植方便
+- 发布于公开领域(Public Domain);
 
-## 7、SQLite 常用语句
+## 6、SQLite3 下载、编译lib
 
-## 8、SQLite 下载、编译lib
+### 6.1、ubuntu上安装 sqlite 命令
 
-## 9、SQLite C 代码调用
+- 安装sqlite3 命令 `sudo apt-get install sqlite3`
+- 安装sqlite3 头文件 `sudo apt-get install libsqlite3-dev`
+
+### 6.2、下载
+
+- sqlite官网直接下载 https://www.sqlite.org/
+- 在ubuntu下可通过wget直接下载`wget https://www.sqlite.org/snapshot/sqlite-snapshot-202107191400.tar.gz`
+
+### 6.2解压、配置编译
+
+```shell
+# 
+tar -zxvf sqlite-snapshot-202107191400.tar.gz
+cd sqlite-snapshot-202107191400/
+mkdir build
+./configure CC=arm-linux-gnueabihf-gcc --host=arm-linux --prefix=$PWD/build
+make -j8
+make install 
+```
+
+## 7、SQLite3 命令行操作
+
+- 环境:ubuntu
+- 若输入非点（`.`）命令，结束为分号（`;`）
+- **shell命令**
+- 输入`sqlite3`命令后可进入sqlite3提示符
+
+sqlite3提示符命令 | 说明 | 例举
+---------|---------- | ----------
+.exit | 退出sqlite3 交互 | \
+.quit | 退出sqlite3 交互 | \
+.help | 显示点命令帮助 | \
+.databases | 列出数据库的名称及其所依附的文件 | \
+.show  | 查看 SQLite 命令提示符的默认设置 | \
+CREATE  |创建表| CREATE TABLE test_table (id integer ,passwd text, other text);
+.schema | 查看所有表结构 | \
+INSERT  | 插入数据 |INSERT INTO test_table (id,passwd,other)  VALUES(1001,"abc123","个性签名123");
+SELECT | 查询数据 | SELECT * FROM test_table;
+UPDATE | 修改数据 | UPDATE test_table SET passwd = "abc1234" WHERE id = 1001;
+DELETE | 删除数据 | DELETE FROM test_table WHERE id = 1001;
+
+- 操作事例
+
+```c
+sqlite3 test.db
+CREATE TABLE test_table (id integer ,passwd text, other text);
+INSERT INTO test_table (id,passwd,other)  VALUES(1001,"abc123","个性签名123");
+INSERT INTO test_table VALUES(1002,"abc456","个性签名456"), (1003,"abc789","个性签名789");
+SELECT * FROM test_table;
+INSERT INTO test_table VALUES(1004,"smc-xm","smc other");
+SELECT * FROM test_table;
+UPDATE test_table SET passwd = "cccccc" WHERE id = 1004;
+SELECT * FROM test_table;
+DELETE FROM test_table WHERE id = 1004;
+SELECT * FROM test_table;
+```
+
+![操作](https://gitee.com/mFlying/flying_picgo_img/raw/master/sqlite_test.png)
+
+## 8、SQLite 常用语句
+
+- 数据库操作中的基础操作：增、删、改、查。
+
+### 8.1 CREATE TABLE 语句
+
+- 创建表
+
+```sqlite3
+CREATE TABLE table_name(
+   column1 datatype,
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype,
+   PRIMARY KEY( one or more columns )
+);
+```
+
+### 8.2 INSERT INTO 语句
+
+- 插入数据
+
+```sqlite3
+INSERT INTO table_name( column1, column2....columnN)
+VALUES ( value1, value2....valueN);
+```
+
+### 8.3 DELETE 语句
+
+- 删除数据
+
+```sqlite3
+DELETE FROM table_name
+WHERE  {CONDITION};
+```
+
+### 8.4 UPDATE 语句
+
+- 修改/更新数据
+
+```sqlite3
+UPDATE table_name
+SET column1 = value1, column2 = value2....columnN=valueN
+[ WHERE  CONDITION ];
+```
+
+### 8.5 SELECT 语句
+
+- 修改/更新数据
+
+```sqlite3
+SELECT column1, column2....columnN
+FROM   table_name;
+```
+
+## 9、SQLite 语法
+
+- 有个重要的点值得注意，SQLite 是不区分大小写的，但也有一些命令是大小写敏感的，比如 GLOB 和 glob 在 SQLite 的语句中有不同的含义。
+
+- 所有的 SQLite 语句可以以任何关键字开始，如 SELECT、INSERT、UPDATE、DELETE、ALTER、DROP 等，所有的语句以分号 ; 结束。
+
+- 支持 算术运算符（+ - * / %）
+- 支持 比较运算符（== != > < ……）
+- 支持 逻辑运算符（AND OR NOT IN ……）
+- 支持 位运算符 （& | ~ << >>）
+
+- 数据类型
+
+存储类 | 描述
+---------|----------
+ NULL | 值是一个 NULL 值。
+ INTEGER | 值是一个带符号的整数，根据值的大小存储在 1、2、3、4、6 或 8 字节中。
+ REAL | 值是一个浮点值，存储为 8 字节的 IEEE 浮点数字。
+ TEXT | 值是一个文本字符串，使用数据库编码（UTF-8、UTF-16BE 或 UTF-16LE）存储。
+ BLOB | 二进制
 
 ## 10、SQLite C 示例代码
 
-## 11、其他
+### 10.1、利用SQL语句 简易调用C代码使用DMEO
 
-### 11.1、SQLite 常用工具
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sqlite3.h>
+
+// sqlite3_exec回调函数，执行sql语句后，有获取到内容时会调用该回调函数（如SELECT语句）
+int callback(void *data, int ncols, char **values, char **headers)
+{
+    int i;
+    fprintf(stderr, "%s : ", (char *)data);
+    for (i = 0; i < ncols; i++)
+    {
+        fprintf(stderr, "%s=%s  ", headers[i], values[i]);
+    }
+    fprintf(stderr, "\n");
+    return 0;
+}
+
+int main(int argc, char *argv[])
+{
+    //打开数据库或创建数据库
+    sqlite3 *db;
+    char *err;
+    int rc = sqlite3_open("./test.db", &db);
+    if (rc)
+    {
+        fprintf(stderr, "不能打开数据库，错误如下 : %s\n", sqlite3_errmsg(db));
+        return -1;
+    }
+
+    //执行sql 语句
+    struct sqlbuff_t
+    {
+        char *sql;
+        int (*callback)(void *, int, char **, char **);
+        void *data;
+    } sqlbuff[] = {
+        {"CREATE TABLE test_table (id integer PRIMARY KEY ,passwd text, other text);", NULL, NULL},
+        {"INSERT INTO test_table (id,passwd,other)  VALUES(1001,'abc123','个性签名123');", NULL, NULL},
+        {"INSERT INTO test_table VALUES(1002,'abc456','个性签名456'), (1003,'abc789','个性签名789');", NULL, NULL},
+        {"SELECT * FROM test_table;", callback, (void *)"第一次查询回调 "},
+        {"INSERT INTO test_table VALUES(1004,'smc-xm','smc other');", NULL, NULL},
+        {"SELECT * FROM test_table;", callback, (void *)"增加数据后查询 "},
+        {"UPDATE test_table SET passwd = 'cccccc' WHERE id = 1004;", NULL, NULL},
+        {"SELECT * FROM test_table;", callback, (void *)"修改数据后查询 "},
+        {"DELETE FROM test_table WHERE id = 1004;", NULL, NULL},
+        {"SELECT * FROM test_table;", callback, (void *)"删除数据后查询 "}};
+
+    for (int i = 0; i < sizeof(sqlbuff) / sizeof(sqlbuff[0]); i++)
+    {
+        rc = sqlite3_exec(db, sqlbuff[i].sql, sqlbuff[i].callback, sqlbuff[i].data, &err);
+        if (rc != SQLITE_OK)
+        {
+            if (err)
+            {
+                fprintf(stderr, "SQL error: %s\n", err);
+                sqlite3_free(err);
+            }
+        }
+    }
+    sqlite3_close(db);
+    return 0;
+}
+```
+
+- 执行结果：
+
+![执行](https://gitee.com/mFlying/flying_picgo_img/raw/master/sqlite_test1.png)
+
+## 11、SQLite C 常用API
+
+- An Introduction To The SQLite C/C++ Interface https://www.sqlite.org/cintro.html
+
+### 11.1、打开数据库
+
+```c
+int sqlite3_open(
+  const char *filename,   /* Database filename (UTF-8) */
+  sqlite3 **ppDb          /* OUT: SQLite db handle */
+);
+int sqlite3_open16(
+  const void *filename,   /* Database filename (UTF-16) */
+  sqlite3 **ppDb          /* OUT: SQLite db handle */
+);
+int sqlite3_open_v2(
+  const char *filename,   /* Database filename (UTF-8) */
+  sqlite3 **ppDb,         /* OUT: SQLite db handle */
+  int flags,              /* Flags */
+  const char *zVfs        /* Name of VFS module to use */
+);
+```
+
+### 11.2、执行数据库语句
+
+```c
+int sqlite3_exec(
+  sqlite3*,                                  /* An open database */
+  const char *sql,                           /* SQL to be evaluated */
+  int (*callback)(void*,int,char**,char**),  /* Callback function */
+  void *,                                    /* 1st argument to callback */
+  char **errmsg                              /* Error msg written here */
+);
+```
+
+### 11.3、 关闭数据库
+
+```c
+int sqlite3_close(sqlite3*);
+int sqlite3_close_v2(sqlite3*);
+```
+
+### 11.4、 释放sqlite3 内部申请的资源
+
+```c
+void sqlite3_free(void*);
+```
+
+### 11.5、返回sqlite3 执行时错误信息
+
+```c
+char *sqlite3_errmsg(sqlite3*);
+```
+
+### 11.6、其他
+
+- sqlite3_get_table
+- sqlite3_prepare
+- sqlite3_column
+- sqlite3_bind
+- sqlite3_step
+- ……
+
+## 12、资源
+
+- sqlite3
+  - 官网：`https://www.sqlite.org/index.html`
+- SQLiteC++提供了对SQLite原生C api的封装，并提供了一些直观且文档良好的c++类。  
+  - 源码路径：`https://github.com/SRombauts/SQLiteCpp`
+- sqlitestudio (SQLite 数据库管理工具)
+  - 官网：`https://sqlitestudio.pl/`
+  - 源码路径：`https://github.com/pawelsalawa/sqlitestudio.git`
+
+## 13、 SQLite 常用高级
+
+### 13.1、PRAGMA
+
+- SQLite 的 PRAGMA 命令是一个特殊的命令，可以用在 SQLite 环境内控制各种环境变量和状态标志。一个 PRAGMA 值可以被读取，也可以根据需求进行设置。
+- eg: encoding Pragma 控制字符串如何编码及存储在数据库文件中
+
+### 13.2、 约束
+
+- 约束是在表的数据列上强制执行的规则。这些是用来限制可以插入到表中的数据类型。这确保了数据库中数据的准确性和可靠性。
+- eg:限制 id不能为空 `NO NULL`
+
+### 13.3、 别名
+
+- 可以暂时把表或列重命名为另一个名字，这被称为别名。使用表别名是指在一个特定的 SQLite 语句中重命名表。重命名是临时的改变，在数据库中实际的表的名称不会改变。
+- eg: 有两个表，里面都有id字段，需要用一天sql语句查询打印时
+
+### 13.4、 触发器（Trigger）
+
+- SQLite 触发器（Trigger）是数据库的回调函数，它会在指定的数据库事件发生时自动执行/调用
+- eg :智能家居中，有场景表、设备表。删除设备时需要同步删除场景表中设备的内容。
+
+### 13.5、 事务（Transaction）
+
+- 事务（Transaction）是一个对数据库执行工作单元
+- eg: 保证数据库完整性，sql语句太多时，设备掉电容易造成数据不完整，通过事务处理能保证数据完整性
